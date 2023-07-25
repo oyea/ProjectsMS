@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;1,100&display=swap');
+body {
+    font-family: 'Kanit', sans-serif;
+}
+.userimg {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+.icon25 {
+    width: 25px;
+    height: 25px;
+}
+.footer {
+    /* box-shadow: 0 10px 30px #00000073; */
+    margin-top: 20px;
+}
+.centerdiv {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+.scale {
+    transition: 1s;
+        }
+.scale:hover {
+    transform: scale(1.1);
+    transition: 1s;
+}
+.removebtnstyle {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    /* line through the finshed tasks and archived projects*/
+    .linethru {
+            text-decoration: line-through; /* Apply the line strike-through effect */
+        }
+    /* END of line through the finshed tasks and archived projects*/
+
+.disabled {
+  pointer-events: none;
+}

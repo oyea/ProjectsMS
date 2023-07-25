@@ -1,0 +1,36 @@
+<?php
+return [
+    '/' => 'controllers/projects/index.php',
+
+    '/users' => 'controllers/users/users.php',
+    '/login' => 'controllers/users/login.php',
+    '/userlogin' => 'controllers/users/check.php',
+    '/logout' => 'controllers/users/logout.php',
+    '/usernew' => 'controllers/users/new.php',
+    '/usersave' => 'controllers/users/save.php',
+    '/userupdate' => 'controllers/users/update.php',
+    '/useredit' => 'controllers/users/edit.php',
+    '/userdelete' => 'controllers/users/delete.php',
+    '/userblock' => 'controllers/users/block.php',
+
+    '/project' => 'controllers/projects/project.php',
+    '/projectnew' => 'controllers/projects/newproject.php',
+    '/projectsave' => 'controllers/projects/save.php',
+    '/projectupdate' => 'controllers/projects/updateproject.php',
+    '/projectedit' => 'controllers/projects/edit.php',
+    '/projectcopy' => 'controllers/projects/copy.php',
+    '/projectdelete' => 'controllers/projects/delete.php',
+    '/projectarchive' => 'controllers/projects/archive.php',
+    '/projectmarchive' => 'controllers/projects/marchive.php',
+    '/projectmdelete' => 'controllers/projects/mdelete.php',
+    '/projectuserDel' => 'controllers/projects/delProjUser.php',
+
+    '/task' => 'controllers/tasks/task.php',
+    '/tasknew' => 'controllers/tasks/newtask.php',
+    '/taskGetSubCat' => 'controllers/tasks/getsubcategories.php',
+    '/tasksave' => 'controllers/tasks/save.php',
+    '/taskupdate' => 'controllers/tasks/update.php',
+    '/taskdelete' => 'controllers/tasks/delete.php',
+    '/taskcopy' => 'controllers/tasks/copy.php',
+    '/taskedit' => 'controllers/tasks/edit.php',
+];
