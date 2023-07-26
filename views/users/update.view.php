@@ -88,7 +88,27 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
 
             <div class="mb-3">
                 <label for="emptype" class="form-label">Employment Type:</label>
-                <input type="text" class="form-control" id="emptype" name="emptype" value="<?= $user['emptype']; ?>">
+                <select name="emptype" id="emptype" class="form-control" required>
+                    <option value="Saudi Engineer" <?= ($user['emptype'] === "Saudi Engineer") ? "selected" : ""; ?>>
+                        Saudi Engineer</option>
+                    <option value="non-Saudi Engineer"
+                        <?= ($user['emptype'] === "non-Saudi Engineer") ? "selected" : ""; ?>>non-Saudi Engineer
+                    </option>
+                    <option value="Saudi Administration"
+                        <?= ($user['emptype'] === "Saudi Administration") ? "selected" : ""; ?>>Saudi Administration
+                    </option>
+                    <option value="non-Saudi Administration"
+                        <?= ($user['emptype'] === "non-Saudi Administration") ? "selected" : ""; ?>>non-Saudi
+                        Administration</option>
+                    <option value="Saudi Contractor"
+                        <?= ($user['emptype'] === "Saudi Contractor") ? "selected" : ""; ?>>Saudi Contractor</option>
+                    <option value="non-Saudi Contractor"
+                        <?= ($user['emptype'] === "non-Saudi Contractor") ? "selected" : ""; ?>>non-Saudi Contractor
+                    </option>
+                    <option value="PDP" <?= ($user['emptype'] === "PDP") ? "selected" : ""; ?>>PDP</option>
+                    <option value="OJT" <?= ($user['emptype'] === "OJT") ? "selected" : ""; ?>>OJT</option>
+                </select>
+
             </div>
 
             <div class="mb-3 form-check">

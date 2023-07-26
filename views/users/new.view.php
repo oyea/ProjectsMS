@@ -64,7 +64,16 @@
 
             <div class="mb-3">
                 <label for="emptype" class="form-label">Employment Type:</label>
-                <input type="text" class="form-control" id="emptype" name="emptype">
+                <select name="emptype" id="emptype" class="form-control" required>
+                    <option value="saeng">Saudi Engineer</option>
+                    <option value="nonsaeng">non-Saudi Engineer</option>
+                    <option value="saadmin">Saudi Administration</option>
+                    <option value="nonsaadmin">non-Saudi Administration</option>
+                    <option value="sacont">Saudi Contractor</option>
+                    <option value="nonsacon">non-Saudi Contractor</option>
+                    <option value="pdp">PDP</option>
+                    <option value="ojt">OJT</option>
+                </select>
             </div>
 
             <div class="mb-3 form-check">
