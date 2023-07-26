@@ -55,8 +55,8 @@ $countusers = $db->read('users');
                 <img src="/views/imgs/icons/adduser.png" width="30" height="30">
             </a>
         </div>
-        <table class="table table-striped rounded rounded-5 overflow-hidden">
-            <thead class="bg-success text-light">
+        <table class="table table-striped rounded rounded-5 overflow-hidden text-center">
+            <thead class="bg-light text-success border border-3 border-success">
                 <tr>
                     <th>#</th>
                     <th></th>
@@ -98,33 +98,36 @@ $countusers = $db->read('users');
                 } else {
                     $class = "";
                 } ?>
-            <tr class="<?= $class ?>">
-                <td><?= $user['id']; ?></td>
-                <td>
-                    <img src="<?= ($user['image'] ?? "views/imgs/guest.png") ?>" alt="<?= $user['name']; ?>"
-                        class="userimg scale2">
-                </td>
-                <td><?= $user['user']; ?></td>
-                <td><a href="userview?id=<?= $user['id']; ?>"><?= $user['name']; ?></a></td>
-                <td><?= $user['emptype']; ?></td>
-                <td><?= $user['approved'] == '1' ? 'Yes' : 'No'; ?></td>
-                <td><?= $user['joiningdate']; ?></td>
-                <td><?= $user['vacbalance']; ?></td>
+            <tbody class="">
+                <tr class="<?= $class ?>">
+                    <td><?= $user['id']; ?></td>
+                    <td>
+                        <img src="<?= ($user['image'] ?? "views/imgs/guest.png") ?>" alt="<?= $user['name']; ?>"
+                            class="userimg scale2">
+                    </td>
+                    <td><?= $user['user']; ?></td>
+                    <td><a href="userview?id=<?= $user['id']; ?>"><?= $user['name']; ?></a></td>
+                    <td><?= $user['emptype']; ?></td>
+                    <td><?= $user['approved'] == '1' ? 'Yes' : 'No'; ?></td>
+                    <td><?= $user['joiningdate']; ?></td>
+                    <td><?= $user['vacbalance']; ?></td>
 
-                <td>
+                    <td>
 
-                    <a title="Edit" href="userupdate?id=<?= $user['id'] ?>" class="<?= $disable ?>"><img class="icon"
-                            src="views/imgs/icons/edit.png"></a>
-                    <a title="Delete" onclick="return confirm('Are you sure you want to Delete?')"
-                        href="userdelete?id=<?= $user['id'] ?>" class="<?= $adminDisable ?>"><img class="icon"
-                            src="views/imgs/icons/delete.png"></a>
-                    <?php if ($user['approved'] == 1) { ?>
-                    <a title="Block" onclick="return confirm('Are you sure you want to Block <?= $user['name'] ?> ?')"
-                        href="userblock?id=<?= $user['id'] ?>" class="<?= $adminDisable ?>"><img class="icon"
-                            src="views/imgs/icons/banuser.png"></a>
-                    <?php } ?>
-                </td>
-            </tr>
+                        <a title="Edit" href="userupdate?id=<?= $user['id'] ?>" class="<?= $disable ?>"><img
+                                class="icon" src="views/imgs/icons/edit.png"></a>
+                        <a title="Delete" onclick="return confirm('Are you sure you want to Delete?')"
+                            href="userdelete?id=<?= $user['id'] ?>" class="<?= $adminDisable ?>"><img class="icon"
+                                src="views/imgs/icons/delete.png"></a>
+                        <?php if ($user['approved'] == 1) { ?>
+                        <a title="Block"
+                            onclick="return confirm('Are you sure you want to Block <?= $user['name'] ?> ?')"
+                            href="userblock?id=<?= $user['id'] ?>" class="<?= $adminDisable ?>"><img class="icon"
+                                src="views/imgs/icons/banuser.png"></a>
+                        <?php } ?>
+                    </td>
+                </tr>
+            </tbody>
             <?php } ?>
         </table>
         <!-- </form> -->
