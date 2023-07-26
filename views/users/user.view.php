@@ -13,13 +13,13 @@ $id = $valid->str($_GET['id']);
 $users = $db->read('users', 'id=?', array($id));
 foreach ($users as $user) {
 ?>
-
+<?php $disable =  authBtns($_SESSION['uid'], $user['id'], $_SESSION['role']); ?>
 <main class="container">
     <div class="d-inline-block">
         <div class="card mb-2 w-auto">
             <div class="card-header h5 d-flex flex-row justify-content-between">
                 <div> User's Info </div>
-                <div class=""><a title="Update user" href="userupdate?id=<?= $id ?>"><img class="icon"
+                <div><a class="<?= $disable ?>" title="Update user" href="userupdate?id=<?= $id ?>"><img class="icon"
                             src="views/imgs/icons/edit.png"></a></div>
             </div>
 
