@@ -14,7 +14,7 @@ $valid->str($limit);
 $search = $_POST['search']  ?? "";
 $valid->str($search);
 $approved = $_POST['approved']  ?? "all";
-$countproject = $db->read('projects');
+$countusers = $db->read('users');
 ?>
 
 <main class="container">
@@ -34,9 +34,11 @@ $countproject = $db->read('projects');
                     <option value="400" <?= ($limit == '400') ? "SELECTED" : "" ?>>400</option>
                     <option value="500" <?= ($limit == '500') ? "SELECTED" : "" ?>>500</option>
                     <option value="1000" <?= ($limit == '1000') ? "SELECTED" : "" ?>>1000</option>
-                    <option value="<?= count($countproject) ?>" <?= ($limit == count($countproject)) ? "SELECTED" : "" ?>>All</option>
+                    <option value="<?= count($countusers) ?>" <?= ($limit == count($countusers)) ? "SELECTED" : "" ?>>
+                        All</option>
                 </select>
-                <button type="submit" name="searchbtn" class="removebtnstyle"><img src="/views/imgs/icons/search.png" class="icon"></button>
+                <button type="submit" name="searchbtn" class="removebtnstyle"><img src="/views/imgs/icons/search.png"
+                        class="icon"></button>
             </form>
         </div>
         <!-- <form method="POST" name="multiactions" action="">
@@ -60,12 +62,9 @@ $countproject = $db->read('projects');
                     <th></th>
                     <th>User/Badge</th>
                     <th>Full Name</th>
-                    <th>Role</th>
-                    <th>Division</th>
                     <th>Employment Type</th>
                     <th>Approved</th>
                     <th>Joining Date</th>
-                    <th>Graduation Year</th>
                     <th>Vacation Balance</th>
                     <th></th>
                 </tr>
@@ -90,39 +89,42 @@ $countproject = $db->read('projects');
             $users = $db->read('users', $where, $params, $limit, null, 'id');
             foreach ($users as $user) {
             ?>
-                <!-- disabe if not author or admin -->
-                <?php $disable =  authBtns($_SESSION['uid'], $user['id'], $_SESSION['role']); ?>
-                <?php $adminDisable =  isadmin($_SESSION['role']); ?>
+            <!-- disabe if not author or admin -->
+            <?php $disable =  authBtns($_SESSION['uid'], $user['id'], $_SESSION['role']); ?>
+            <?php $adminDisable =  isadmin($_SESSION['role']); ?>
 
-                <?php if ($user['approved'] == "0") {
+            <?php if ($user['approved'] == "0") {
                     $class = "linethru";
                 } else {
                     $class = "";
                 } ?>
-                <tr class="<?= $class ?>">
-                    <td><?= $user['id']; ?></td>
-                    <td>
-                        <img src="<?= ($user['image'] ?? "views/imgs/guest.png") ?>" alt="<?= $user['name']; ?>" class="userimg">
-                    </td>
-                    <td><?= $user['user']; ?></td>
-                    <td><?= $user['name']; ?></td>
-                    <td><?= $user['role']; ?></td>
-                    <td><?= $user['division']; ?></td>
-                    <td><?= $user['emptype']; ?></td>
-                    <td><?= $user['approved'] == '1' ? 'Yes' : 'No'; ?></td>
-                    <td><?= $user['joiningdate']; ?></td>
-                    <td><?= $user['gradyear']; ?></td>
-                    <td><?= $user['vacbalance']; ?></td>
+            <tr class="<?= $class ?>">
+                <td><?= $user['id']; ?></td>
+                <td>
+                    <img src="<?= ($user['image'] ?? "views/imgs/guest.png") ?>" alt="<?= $user['name']; ?>"
+                        class="userimg scale2">
+                </td>
+                <td><?= $user['user']; ?></td>
+                <td><a href="userview?id=<?= $user['id']; ?>"><?= $user['name']; ?></a></td>
+                <td><?= $user['emptype']; ?></td>
+                <td><?= $user['approved'] == '1' ? 'Yes' : 'No'; ?></td>
+                <td><?= $user['joiningdate']; ?></td>
+                <td><?= $user['vacbalance']; ?></td>
 
-                    <td>
+                <td>
 
-                        <a title="Edit" href="userupdate?id=<?= $user['id'] ?>" class="<?= $disable ?>"><img class="icon" src="views/imgs/icons/edit.png"></a>
-                        <a title="Delete" onclick="return confirm('Are you sure you want to Delete?')" href="userdelete?id=<?= $user['id'] ?>" class="<?= $adminDisable ?>"><img class="icon" src="views/imgs/icons/delete.png"></a>
-                        <?php if ($user['approved'] == 1) { ?>
-                            <a title="Block" onclick="return confirm('Are you sure you want to Block <?= $user['name'] ?> ?')" href="userblock?id=<?= $user['id'] ?>" class="<?= $adminDisable ?>"><img class="icon" src="views/imgs/icons/banuser.png"></a>
-                        <?php } ?>
-                    </td>
-                </tr>
+                    <a title="Edit" href="userupdate?id=<?= $user['id'] ?>" class="<?= $disable ?>"><img class="icon"
+                            src="views/imgs/icons/edit.png"></a>
+                    <a title="Delete" onclick="return confirm('Are you sure you want to Delete?')"
+                        href="userdelete?id=<?= $user['id'] ?>" class="<?= $adminDisable ?>"><img class="icon"
+                            src="views/imgs/icons/delete.png"></a>
+                    <?php if ($user['approved'] == 1) { ?>
+                    <a title="Block" onclick="return confirm('Are you sure you want to Block <?= $user['name'] ?> ?')"
+                        href="userblock?id=<?= $user['id'] ?>" class="<?= $adminDisable ?>"><img class="icon"
+                            src="views/imgs/icons/banuser.png"></a>
+                    <?php } ?>
+                </td>
+            </tr>
             <?php } ?>
         </table>
         <!-- </form> -->

@@ -3,6 +3,7 @@ return [
     '/' => 'controllers/projects/index.php',
 
     '/users' => 'controllers/users/users.php',
+    '/userview' => 'controllers/users/user.php',
     '/login' => 'controllers/users/login.php',
     '/userlogin' => 'controllers/users/check.php',
     '/logout' => 'controllers/users/logout.php',
