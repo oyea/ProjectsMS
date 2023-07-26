@@ -9,19 +9,29 @@
 <?php if (!$tid) {
     echo "<br>" . "<div class=' w-50 text-center text-dark'><img class='icon' src='views/imgs/icons/animatedX.gif'> No Task To view </div>";
 } ?>
+<?php
+$uid = $_SESSION['uid'];
+$role = $_SESSION['role'];
+
+$disabled = (!isAssigned('tasks', $tid, $uid) && !isAdmin($role) && !isAuthor('tasks', $tid, $uid)) ? "disabled" : "";
+?>
+
 <main class="container">
     <?php $tasks = $db->read('tasks', 'id = ?', array($tid));
     foreach ($tasks as $row) {  ?>
         <div>
-            <a title="Copy" onclick="return confirm('Are you sure you want to Copy?')" href="taskcopy?tid=<?= $tid ?>&pid=<?= $row['project']; ?>"><img class="icon" src="views/imgs/icons/copy.png"></a>
-            <a title="Delete" onclick="return confirm('Are you sure you want to Delete?')" href="taskdelete?tid=<?= $tid ?>&pid=<?= $row['project']; ?>"><img class="icon" src="views/imgs/icons/delete.png"></a>
+            <a title="Copy" onclick="return confirm('Are you sure you want to Copy?')" href="taskcopy?tid=<?= $tid ?>&pid=<?= $row['project']; ?>">
+                <img class="icon" src="views/imgs/icons/copy.png"></a>
+            <a class="<?= $disabled ?>" title="Delete" onclick="return confirm('Are you sure you want to Delete?')" href="taskdelete?tid=<?= $tid ?>&pid=<?= $row['project']; ?>">
+                <img class="icon \" src="views/imgs/icons/delete.png"></a>
         </div>
         <div class="container mt-2">
             <div class="d-inline-block">
                 <div class="card mb-2 w-auto">
                     <div class="card-header h5 d-flex flex-row justify-content-between">
                         <div> Task's Info </div>
-                        <div class=""><a title="Edit" href="taskupdate?tid=<?= $tid ?>&pid=<?= $row['project']; ?>"><img class="icon" src="views/imgs/icons/edit.png"></a></div>
+                        <div class=""><a class="<?= $disabled ?>" title="Edit" href="taskupdate?tid=<?= $tid ?>&pid=<?= $row['project']; ?>">
+                                <img class="icon " src="views/imgs/icons/edit.png"></a></div>
                     </div>
 
                     <div class="card-body">

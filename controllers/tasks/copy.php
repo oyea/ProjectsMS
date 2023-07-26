@@ -1,6 +1,5 @@
  <!-- Bootstrap CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <link rel="stylesheet" type="" href="views/css/style.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
@@ -14,6 +13,7 @@
 
         $tid = $val->str($_GET['tid']);
 
+        $author = $_SESSION['uid'];
         // Get the author from the user session
         $assignuser = ""; //$_SESSION['user_id']; // Replace with actual session variable later
 
@@ -31,6 +31,7 @@
             $newtaskData['title'] = 'Copy of_ ' . $newtaskData['title'];
 
             $newtaskData['assignuser'] = $assignuser;
+            $newtaskData['author'] = $author;
             $newtaskData['cdate'] = $currdt;
 
             // Remove the ID to ensure a new record is created

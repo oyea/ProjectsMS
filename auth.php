@@ -23,11 +23,20 @@ function authBtns($user, $author, $role)
     // Return 'disabled-link' if not authorized, or an empty string otherwise
     return $isAuthorOrAdmin ? '' : 'disabled';
 }
-function isadmin($role)
+function isAdmin($role)
 {
-    // Check if the user is the author of the project or an admin
-    $isAdmin = ($role == "admin");
-
-    // Return 'disabled-link' if not authorized, or an empty string otherwise
-    return $isAdmin ? '' : 'disabled';
+    return ($role == "admin") ?  true : false;
+}
+function isAssigned($table, $tid, $uid)
+{
+    $iSassigned = false;
+    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $users = $db->read($table, 'id=? AND assignuser=?', array($tid, $uid));
+    return ($users) ? true : false;
+}
+function isAuthor($table,$tid, $uid)
+{
+    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $tasks = $db->read($table, 'id=? AND author=?', array($tid, $uid));
+    return ($tasks) ? true : false;
 }
