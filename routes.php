@@ -1,6 +1,7 @@
 <?php
 return [
-    '/' => 'controllers/projects/index.php',
+
+    '/dashboard' => 'controllers/dashboard/dashboard.php',
 
     '/users' => 'controllers/users/users.php',
     '/userview' => 'controllers/users/user.php',
@@ -14,6 +15,7 @@ return [
     '/userdelete' => 'controllers/users/delete.php',
     '/userblock' => 'controllers/users/block.php',
 
+    '/' => 'controllers/projects/index.php',
     '/project' => 'controllers/projects/project.php',
     '/projectnew' => 'controllers/projects/newproject.php',
     '/projectsave' => 'controllers/projects/save.php',

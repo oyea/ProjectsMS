@@ -1,8 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-white shadow mt-2 rounded me-2 ms-2">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">PM-Dashboard</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="dashboard">PM-Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -25,15 +24,15 @@
                     $userimg = $_SESSION["image"] ?? null;
                     $firstname = explode(" ", $name)[0];
 
-                 $remainingtime = time() - isset($_SESSION["timeout"]);
+                    $remainingtime = time() - isset($_SESSION["timeout"]);
                 }
                 ?>
                 Welcome, <?php echo "<b>" . (($firstname) ? $firstname : 'Guest') . "</b>"; ?>
                 <?php echo "<img class='userimg' src='" . ($userimg ?? 'views/imgs/guest.png') . "'>"; ?>
 
-                <?php if ($uid) {?>
-                <a href='logout' class='btn btn-sm btn-secondary'>Logout</a><br>
-                <div></div>
+                <?php if ($uid) { ?>
+                    <a href='logout' class='btn btn-sm btn-secondary'>Logout</a><br>
+                    <div></div>
                 <?php } ?>
 
             </div>
