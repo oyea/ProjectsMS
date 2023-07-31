@@ -24,14 +24,17 @@
                     $division = $_SESSION["division"] ?? "";
                     $userimg = $_SESSION["image"] ?? null;
                     $firstname = explode(" ", $name)[0];
+
+                 $remainingtime = time() - isset($_SESSION["timeout"]);
                 }
                 ?>
                 Welcome, <?php echo "<b>" . (($firstname) ? $firstname : 'Guest') . "</b>"; ?>
                 <?php echo "<img class='userimg' src='" . ($userimg ?? 'views/imgs/guest.png') . "'>"; ?>
 
-                <?php if ($uid) {
-                    echo "<a href='logout' class='btn btn-sm btn-secondary'>Logout</a>";
-                } ?>
+                <?php if ($uid) {?>
+                <a href='logout' class='btn btn-sm btn-secondary'>Logout</a><br>
+                <div></div>
+                <?php } ?>
 
             </div>
         </div>
