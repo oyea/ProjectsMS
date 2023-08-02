@@ -43,7 +43,10 @@
         </div>";
                 header("Refresh: 2.3; URL=/project?id=$newProjectId");
             } else {
-                echo "Error copying the project";
+                echo "<div class='centerdiv text-center shadow w-50 mt-5'>
+        <h4><img src='/views/imgs/icons/animatedX.gif' width='50' height='50'>
+        Error copying the project </h4><br>" . $db->titleError['titerr'] . " or this is a second copy change the second copy's name
+        <br> <a class='btn btn-primary btn-sm mt-1 mb-2' href='#' onclick='history.go(-1);'>Go Back</a></div>";
             }
         } else {
             echo "Project not found";

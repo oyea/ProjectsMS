@@ -41,7 +41,7 @@ class Db
             return $statement->insert_id;
         } else {
             if ($this->connection->errno === 1062) {
-                $this->titleError = ['titerr' => 'Project With this Title already exists go back to fix it'];
+                $this->titleError = ['titerr' => 'Project With this Title already exists'];
             } else {
                 $this->error =  "Error: " . $this->connection->error;
             }
