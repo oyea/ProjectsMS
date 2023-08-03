@@ -50,8 +50,10 @@
                     $_SESSION["timeout"] = time() + 900; // 15 minutes * 60 seconds = 900 seconds
 
                     // You can redirect the user to the dashboard or another page here
-                    echo "<div class='centerdiv text-center shadow w-50 mt-5'>
-        <h4 class='mt-2'>Welcome, " . explode(" ", $user["name"])['0'] . "<img src='/views/imgs/icons/wave.gif' width='50' height='50'> 
+                    echo "<div class='centerdiv text-center shadow w-25 mt-5 rounded-pill'>
+        <h4 class='mt-2'>Welcome, " . explode(" ", $user["name"])['0'] . "
+        <img src ='" . (($user["image"]) ? $user['image'] : "/views/imgs/guest.png") . "' width='50' height='50'> <br>
+        <img src='/views/imgs/icons/wave.gif' width='50' height='50'> 
         </h4></div>";
                     header("Refresh: 1.7; URL=/");
                 } else {

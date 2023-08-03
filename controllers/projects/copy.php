@@ -38,12 +38,12 @@
             $newProjectId = $db->create('projects', $newProjectData);
 
             if ($newProjectId) {
-                echo "<div class='centerdiv text-center shadow w-50 mt-5'>
+                echo "<div class='centerdiv text-center shadow w-50 mt-5 rounded-pill'>
         <h4>Project copied Successfully</h4> <img src='/views/imgs/icons/verified.gif' width='80' height='80'> 
         </div>";
                 header("Refresh: 2.3; URL=/project?id=$newProjectId");
             } else {
-                echo "<div class='centerdiv text-center shadow w-50 mt-5'>
+                echo "<div class='centerdiv text-center shadow w-50 mt-5 rounded-pill'>
         <h4><img src='/views/imgs/icons/animatedX.gif' width='50' height='50'>
         Error copying the project </h4><br>" . $db->titleError['titerr'] . " or this is a second copy change the second copy's name
         <br> <a class='btn btn-primary btn-sm mt-1 mb-2' href='#' onclick='history.go(-1);'>Go Back</a></div>";

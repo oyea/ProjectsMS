@@ -44,7 +44,7 @@
         </div>";
             header("Refresh: 2; URL=/project?id=$id[0]");
         } else {
-            echo "<div class='container shadow w-50 mt-5 '> 
+            echo "<div class='container shadow w-50 mt-5 rounded-pill'> 
          <h1>Failed to Update Project. <img src='/views/imgs/icons/animatedX.gif' width='50' height='50'></h1> "
                 . $db->titleError['titerr'] ?? '',
             "<br><div class='text-center'><a class='btn btn-primary btn-sm mt-1 mb-2' href='#' onclick='history.go(-1);'>Go Back</a> </div></div>";

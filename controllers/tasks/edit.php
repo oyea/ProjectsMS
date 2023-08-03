@@ -1,6 +1,5 @@
  <!-- Bootstrap CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <link rel="stylesheet" type="" href="views/css/style.css">
  <?php require("auth.php"); ?>
  <?php
@@ -29,12 +28,12 @@
         $inserted = $db->update('tasks', $data, 'id=?', $tid);
 
         if ($inserted) {
-            echo "<div class='centerdiv text-center shadow w-25 mt-5'>
+            echo "<div class='centerdiv text-center shadow w-25 mt-5 rounded-pill'>
         Task Updated Successfully <img src='/views/imgs/icons/verified.gif' width='50' height='50'> 
         </div>";
             header("Refresh: 2; URL=/task?id=$tid[0]");
         } else {
-            echo "<div class='container shadow w-50 mt-5 '> 
+            echo "<div class='container shadow w-50 mt-5 rounded-pill'> 
          <h1>Failed to Update Task. <img src='/views/imgs/icons/animatedX.gif' width='50' height='50'></h1> "
                 .
                 "<br><div class='text-center'><a class='btn btn-primary btn-sm mt-1 mb-2' href='#' onclick='history.go(-1);'>Go Back</a> </div></div>";

@@ -1,5 +1,6 @@
  <!-- Bootstrap CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <link rel="stylesheet" type="" href="views/css/style.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
  <?php require("auth.php"); ?>
@@ -163,7 +164,7 @@
         $updated = $db->update('users', $data, 'id = ?', array($userID));
 
         if ($updated) {
-            echo "<div class='centerdiv text-center shadow w-50 mt-5'>
+            echo "<div class='centerdiv text-center shadow w-50 mt-5 rounded-pill'>
         <h4> Users updated Successfully</h4> <img src='/views/imgs/icons/verified.gif' width='80' height='80'> 
         </div>";
             header("Refresh: 2.0; URL=users");

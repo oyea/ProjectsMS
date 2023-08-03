@@ -33,12 +33,12 @@
         $inserted = $db->create('tasks', $data);
 
         if ($inserted) {
-            echo "<div class='centerdiv text-center shadow w-50 mt-5'>
+            echo "<div class='centerdiv text-center shadow w-50 mt-5 rounded-pill'>
         <h4> New Task created Successfully</h4> <img src='/views/imgs/icons/verified.gif' width='80' height='80'> 
         </div>";
             header("Refresh: 2.3; URL=project?id=$pid");
         } else {
-            echo "<div class='centerdiv text-center shadow w-50 mt-5 '> 
+            echo "<div class='centerdiv text-center shadow w-50 mt-5 rounded-pill'> 
          <h1>Failed to create Task. <img src='views/imgs/icons/animatedX.gif' width='50' height='50'></h1> "
                 . $db->error .
                 "<br><a class='btn btn-primary btn-sm mt-1' href='#' onclick='history.go(-1);'>Go Back</a>  </div>";

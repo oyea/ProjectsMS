@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;1,100&display=swap');
 body {
+    display:block !important;
     font-family: 'Kanit', sans-serif;
 }
 .userimg {
