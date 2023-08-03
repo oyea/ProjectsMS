@@ -1,5 +1,6 @@
  <!-- Bootstrap CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <link rel="stylesheet" type="" href="views/css/style.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
 
@@ -52,7 +53,7 @@
                     // You can redirect the user to the dashboard or another page here
                     echo "<div class='centerdiv text-center shadow w-25 mt-5 rounded-pill'>
         <h4 class='mt-2'>Welcome, " . explode(" ", $user["name"])['0'] . "
-        <img src ='" . (($user["image"]) ? $user['image'] : "/views/imgs/guest.png") . "' width='50' height='50'> <br>
+        <img class='userimg' src ='" . (($user["image"]) ? $user['image'] : "/views/imgs/guest.png") . "'> <br>
         <img src='/views/imgs/icons/wave.gif' width='50' height='50'> 
         </h4></div>";
                     header("Refresh: 1.7; URL=/");

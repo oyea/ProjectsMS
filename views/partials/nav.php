@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-white shadow mt-2 rounded me-2 ms-2">
     <div class="container-fluid">
         <a class="navbar-brand" href="dashboard">PM-Dashboard</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -28,11 +29,11 @@
                 }
                 ?>
                 Welcome, <?php echo "<b>" . (($firstname) ? $firstname : 'Guest') . "</b>"; ?>
-                <?php echo "<img class='userimg' src='" . ($userimg ?? 'views/imgs/guest.png') . "'>"; ?>
+                <?php echo "<img class='sm-userimg' src='" . ($userimg ?? 'views/imgs/guest.png') . "'>"; ?>
 
                 <?php if ($uid) { ?>
-                    <a href='logout' class='btn btn-sm btn-secondary'>Logout</a><br>
-                    <div></div>
+                <a href='logout' class='btn btn-sm btn-secondary'>Logout</a><br>
+                <div></div>
                 <?php } ?>
 
             </div>

@@ -33,8 +33,8 @@
         $inserted = $db->create('tasks', $data);
 
         if ($inserted) {
-            echo "<div class='centerdiv text-center shadow w-50 mt-5 rounded-pill'>
-        <h4> New Task created Successfully</h4> <img src='/views/imgs/icons/verified.gif' width='80' height='80'> 
+            echo "<div class='centerdiv text-center shadow w-25 mt-5 rounded-pill'>
+        <h5> New Task created Successfully</h5> <img src='/views/imgs/icons/verified.gif' width='80' height='80'> 
         </div>";
             header("Refresh: 2.3; URL=project?id=$pid");
         } else {
