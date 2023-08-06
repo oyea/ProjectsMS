@@ -5,6 +5,7 @@
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
 
  <?php require("auth.php"); ?>
+ <?php require("functions.php"); ?>
  <?php
     date_default_timezone_set("Asia/Riyadh");
     $currdt = date("Y-m-d H:i:s");
@@ -12,6 +13,13 @@
         $db = new Db('localhost', 'root', 'root', 'projectsms');
         $val = new validate();
         $pid = $_POST['pid'];
+
+
+        //calculate days diff between received date and reply date if available
+        $dayscount = NULL;
+        if (!empty($_POST['recedate']) && !empty($_POST['replydate'])) {
+            $dayscount = daysDiff($_POST['recedate'], $_POST['replydate']);
+        }
 
         $data = array(
             'title' => $val->str($_POST['title']),
@@ -28,6 +36,7 @@
             'project' => $pid,
             'cdate' => $currdt,
             'progress' => $val->str($_POST['progress']),
+            'dayscount' => $dayscount ? $dayscount : NULL,
             'assignuser' => $val->str($_POST['assignuser']),
         );
         $inserted = $db->create('tasks', $data);

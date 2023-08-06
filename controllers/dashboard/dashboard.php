@@ -43,7 +43,7 @@ $currYearArchProj = array_filter($archproj, function ($project) {
 // ************************* tassks *******************************************
 $pendTasks = $db->read('tasks', 'progress=?', array(0));
 $compTasks = $db->read('tasks', 'progress=?', array(100));
-$tcats = $db->read('tasks');
+$tasks = $db->read('tasks');
 
 // tasks received and replied today
 $todayPenTasks =
@@ -84,12 +84,19 @@ $compTasks15 =
     });
 
 // tasks categories into vars
-
+$categoriesDaysCount = [];
 for ($i = 1; $i <= 24; $i++) {
     $tCatNumber = "tCat" . $i;
-    $$tCatNumber = array_filter($tcats, function ($cat) use ($i) {
+    $$tCatNumber = array_filter($tasks, function ($cat) use ($i) {
         return $cat['category'] === (string)$i;
     });
+    // Calculate the sum of dayscount for the current category
+    $categoriesDaysCount[$i] = array_sum(array_column($$tCatNumber, 'dayscount'));
+
+    // Calculate the average dayscount for the current category
+    $categoryTasksCount = count($$tCatNumber);
+    $categoriesAverageDaysCount[$i] = $categoryTasksCount > 0 ? $categoriesDaysCount[$i] / $categoryTasksCount : 0;
 }
+//function to call category name 
 
 require 'views/dashboard/dashboard.view.php';

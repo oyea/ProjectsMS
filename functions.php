@@ -24,3 +24,24 @@ function tasksubcateg($id)
     $subcategories = $db->read('subtaskscategories', 'id=?', array($id));
     echo $subcategory = $subcategories['0']['subcat'] ?? NULL;
 }
+
+// days difference excluding fridays and saturdays
+function daysDiff($Recedate, $replyDate)
+{
+    $date1 = new DateTime($Recedate);
+    $date2 = new DateTime($replyDate);
+    if ($date2 < $date1) {
+        echo "Reply Date is less than the Received Date";
+        die();
+    }
+    $diff = $date2->diff($date1)->days + 1;
+
+    while ($date1 <= $date2) {
+        if ($date1->format('N') == 5 || $date1->format('N') == 6) {
+            $diff--;
+        }
+        $date1->modify('+1 day');
+    }
+
+    return $diff;
+}
