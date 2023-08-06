@@ -27,25 +27,25 @@ $archmaintenanceProjects = array_filter($archproj, function ($project) {
     return $project['category'] === 'Maintenance';
 });
 
-//current year active projects
+// current year active projects
 $currYearActProj = array_filter($actproj, function ($project) {
     $curryear = date("Y");
     $projectYear = date("Y", strtotime($project['cdate']));
     return $projectYear === $curryear;
 });
-//current year archived projects
+// current year archived projects
 $currYearArchProj = array_filter($archproj, function ($project) {
     $curryear = date("Y");
     $projectYear = date("Y", strtotime($project['cdate']));
     return $projectYear === $curryear;
 });
 
-//tassks 
+// ************************* tassks *******************************************
 $pendTasks = $db->read('tasks', 'progress=?', array(0));
 $compTasks = $db->read('tasks', 'progress=?', array(100));
 $tcats = $db->read('tasks');
 
-//tasks received and replied today
+// tasks received and replied today
 $todayPenTasks =
     array_filter($pendTasks, function ($task) {
         $today = date("Y-m-d");
@@ -60,7 +60,7 @@ $todayCompTasks =
     });
 
 
-//tasks received and replied more than 10 days
+// tasks received and replied more than 10 days
 $penTasks10 =
     array_filter($pendTasks, function ($task) {
         $tenDaysAgo = date('Y-m-d', strtotime(date('Y-m-d') . ' - 10 days'));
@@ -71,7 +71,7 @@ $compTasks10 =
         $tenDaysAgo = date('Y-m-d', strtotime(date('Y-m-d') . ' - 10 days'));
         return  $task['replydate'] <= $tenDaysAgo;
     });
-//tasks received and replied more than 15 days
+// tasks received and replied more than 15 days
 $penTasks15 =
     array_filter($pendTasks, function ($task) {
         $fiftenDaysAgo =  date('Y-m-d', strtotime(date('Y-m-d') . ' - 15 days'));
@@ -83,7 +83,7 @@ $compTasks15 =
         return $task['replydate'] <= $fiftenDayAgo;
     });
 
-//tasks categories into vars
+// tasks categories into vars
 
 for ($i = 1; $i <= 24; $i++) {
     $tCatNumber = "tCat" . $i;
