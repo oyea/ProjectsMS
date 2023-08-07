@@ -85,6 +85,7 @@ $compTasks15 =
 
 // tasks categories into vars
 $categoriesDaysCount = [];
+$categoryTasksCountarr = [];
 for ($i = 1; $i <= 24; $i++) {
     $tCatNumber = "tCat" . $i;
     $$tCatNumber = array_filter($tasks, function ($cat) use ($i) {
@@ -95,6 +96,7 @@ for ($i = 1; $i <= 24; $i++) {
 
     // Calculate the average dayscount for the current category
     $categoryTasksCount = count($$tCatNumber);
+    $categoryTasksCountarr[$i] = $categoryTasksCount;
     $categoriesAverageDaysCount[$i] = $categoryTasksCount > 0 ? $categoriesDaysCount[$i] / $categoryTasksCount : 0;
 }
 //function to call category name 
