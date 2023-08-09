@@ -45,3 +45,24 @@ function daysDiff($Recedate, $replyDate)
 
     return $diff;
 }
+
+//update task weight
+function updateTaskWeight($category, $tid)
+{
+    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    //get weight from task categories table
+    $categoryInfo = $db->read('taskscategories', 'id=?', array($category));
+    $weight =  $categoryInfo[0]['weight'];
+    $pduration =  $categoryInfo[0]['duration'];
+    //update task weight
+    $wdata = ['weight' => $weight];
+    $update = $db->update('tasks', $wdata, 'id=?', array($tid));
+
+    //get task info and calculate score if days count is not null
+    $task = $db->read('tasks', 'id=?', array($tid));
+    if (!empty($task[0]['dayscount'])) {
+        $score = $pduration / $task[0]['dayscount'] * $weight * 10;
+        $sdata = ['score' => $score];
+        $update = $db->update('tasks', $sdata, 'id=?', array($tid));
+    }
+}

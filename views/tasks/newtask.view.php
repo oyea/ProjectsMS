@@ -1,5 +1,7 @@
-<?php require("auth.php"); ?>
 <?php $base = __DIR__ . '/../'; ?>
+<?php require("auth.php"); ?>
+<?php require(dirname(dirname(__DIR__)) . "/functions.php"); ?>
+
 <?php require($base . 'partials/head.php'); ?>
 <?php require($base . 'partials/nav.php'); ?>
 <?php require($base . 'partials/banner.php'); ?>
@@ -20,7 +22,7 @@
                     <option value="">Select</option>
                     <?php $cats = $db->read('taskscategories'); ?>
                     <?php foreach ($cats as $cat) { ?>
-                        <option value="<?= $cat['id'] ?>"><?= $cat['category'] ?></option>
+                    <option value="<?= $cat['id'] ?>"><?= $cat['category'] ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -75,7 +77,7 @@
                     <option value="">Select</option>
                     <?php $users = $db->read('users'); ?>
                     <?php foreach ($users as $user) { ?>
-                        <option value="<?= $user['id'] ?>"><?= $user['name'] ?></option>
+                    <option value="<?= $user['id'] ?>"><?= $user['name'] ?></option>
                     <?php } ?>
                 </select>
             </div>

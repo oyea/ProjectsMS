@@ -82,6 +82,11 @@ $disabled = (!isAssigned('tasks', $tid, $uid) && !isAdmin($role) && !isAuthor('t
                             <th class="text-dark rounded">Weight</th>
                             <td><?= $row['weight']; ?></td>
                         </tr><?php } ?>
+                        <?php if ($row['score']) { ?>
+                        <tr>
+                            <th class="text-dark rounded">Score</th>
+                            <td><?= $row['score']; ?></td>
+                        </tr><?php } ?>
 
                     </table>
 

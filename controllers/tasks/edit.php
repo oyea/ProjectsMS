@@ -40,6 +40,9 @@
             echo "<div class='centerdiv text-center shadow w-25 mt-5 rounded-pill h6'>
         Task Updated Successfully <img src='/views/imgs/icons/verified.gif' width='50' height='50'> 
         </div>";
+            if (!empty($_POST['category'])) {
+                updateTaskWeight($_POST['category'], $tid[0]);
+            }
             header("Refresh: 2; URL=/task?id=$tid[0]");
         } else {
             echo "<div class='container shadow w-50 mt-5 rounded-pill'> 
