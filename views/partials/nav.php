@@ -42,7 +42,7 @@
                     <?php } ?>
                     <img class="dropdown-toggle icon" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" src="/views/imgs/icons/chat.png">
 
-                    <ul class="dropdown-menu p-2 striped" aria-labelledby="dropdownMenuButton1">
+                    <ul class="dropdown-menu p-2 striped scrollable-menu mt-2 dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                         <?php foreach ($notifications as $notification) : ?>
                             <li class="list-group-item list-group-item-action"><a href="<?= $notification['link'] ?>&notifid=<?= $notification['id'] ?>">
                                     <?= $notification['msg'] ?>

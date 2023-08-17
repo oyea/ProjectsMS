@@ -66,3 +66,11 @@ body {
 .dropdown-item {
             white-space: normal; /* Allow text to wrap in notification menu */
         }
+
+.scrollable-menu {
+    width: 250px; /* Adjust the width as needed */
+    max-height: 300px; /* Adjust the max-height as needed */
+    overflow-y: auto;
+}
+
+
