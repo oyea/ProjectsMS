@@ -15,7 +15,7 @@
                     <a class="nav-link " aria-current="page" href="users">Users</a>
                 </li>
             </ul>
-            <div class="me-1">
+            <div class="me-5">
                 <?php if (isset($_SESSION["uid"]) || time() > isset($_SESSION["timeout"])) {
                     $uid = $_SESSION["uid"] ?? "";
                     $user = $_SESSION["user"] ?? "";
@@ -28,6 +28,34 @@
                     $remainingtime = time() - isset($_SESSION["timeout"]);
                 }
                 ?>
+                <!-- read notifications from db -->
+                <?php
+                $db = new Db('localhost', 'root', 'root', 'projectsms');
+                $notifications = $db->read('notifications', 'uid=? AND is_read=?', [$uid, 0], null, null, 'cdate');
+
+                ?>
+                <!-- notification area -->
+                <div class="dropdown d-inline">
+                    <?php if ($notifications) { ?>
+                    <span
+                        class="position-absolute top-0 start-10 translate-middle badge border border-light rounded-circle bg-danger p-1">
+                        <?= count($notifications); ?>
+                    </span>
+                    <?php } ?>
+                    <img class="dropdown-toggle icon" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                        aria-expanded="false" src="/views/imgs/icons/notification-bell.png">
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <?php foreach ($notifications as $notification) : ?>
+                        <li><a href="<?= $notification['link'] ?>&notifid=<?=$notification['id']?>">
+                                <?= $notification['msg'] ?>
+                            </a>
+                            <span class="timestamp"><?= $notification['cdate'] ?></span>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+
                 Welcome, <?php echo "<b>" . (($firstname) ? $firstname : 'Guest') . "</b>"; ?>
                 <?php echo "<img class='sm-userimg' src='" . ($userimg ?? 'views/imgs/guest.png') . "'>"; ?>
 

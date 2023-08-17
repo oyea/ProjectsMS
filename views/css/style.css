@@ -63,3 +63,6 @@ body {
 .disabled {
   pointer-events: none;
 }
+.dropdown-item {
+            white-space: normal; /* Allow text to wrap in notification menu */
+        }

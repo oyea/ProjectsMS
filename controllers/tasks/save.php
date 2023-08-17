@@ -1,5 +1,6 @@
  <!-- Bootstrap CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <link rel="stylesheet" type="" href="views/css/style.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
 
@@ -47,6 +48,15 @@
             if (!empty($_POST['category'])) {
                 updateTaskWeight($_POST['category'], $inserted);
             }
+
+            // make notifications
+            $notifData = array(
+                "uid" => $_POST['assignuser'],
+                "msg" => "New task assigned:{$_POST['title']}",
+                "link" => "task?id=" . $inserted,
+            );
+            $db->create('notifications', $notifData);
+
             header("Refresh: 2.3; URL=project?id=$pid");
         } else {
             echo "<div class='centerdiv text-center shadow w-50 mt-5 rounded-pill'> 
