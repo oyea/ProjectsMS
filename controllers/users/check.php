@@ -9,6 +9,7 @@
         // Retrieve the form input values
         $username = $_POST["user"];
         $password = $_POST["password"];
+        $loggedin = false;
 
         // Validate the form inputs (you can add more validation as needed)
         if (empty($username) || empty($password)) {
@@ -44,6 +45,9 @@
                     $_SESSION["role"] = $user["role"];
                     $_SESSION["image"] = $user["image"];
 
+                    //set logget in to true
+                    $loggedin = true;
+                    $_SESSION["loggedin"] = $loggedin;
                     //set user online in the db
                     $db->update('users', array('online' => '1'), 'id=?', array($user["id"]));
 
@@ -56,7 +60,7 @@
         <img class='userimg' src ='" . (($user["image"]) ? $user['image'] : "/views/imgs/guest.png") . "'> <br>
         <img src='/views/imgs/icons/wave.gif' width='50' height='50'> 
         </h4></div>";
-                    header("Refresh: 1.7; URL=/");
+                    header("Refresh: 1.0; URL=/");
                 } else {
                     // Incorrect password
                     echo "Incorrect password!";

@@ -34,24 +34,29 @@
 
                 ?>
                 <!-- notification area -->
-                <div class="dropdown d-inline">
-                    <?php if ($notifications) { ?>
-                        <span class="position-absolute top-0 start-10 translate-middle badge border border-light rounded-circle bg-danger p-1">
-                            <?= count($notifications); ?>
-                        </span>
-                    <?php } ?>
-                    <img class="dropdown-toggle icon" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" src="/views/imgs/icons/chat.png">
+                <?php
+                //show only if logged in 
+                if (isset($_SESSION["loggedin"])) :
+                ?>
+                    <div class="dropdown d-inline">
+                        <?php if ($notifications) { ?>
+                            <span class="position-absolute top-0 start-10 translate-middle badge border border-light rounded-circle bg-danger p-1">
+                                <?= count($notifications); ?>
+                            </span>
+                        <?php } ?>
+                        <img class="dropdown-toggle icon" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" src="/views/imgs/icons/chat.png">
 
-                    <ul class="dropdown-menu p-2 striped scrollable-menu mt-2 dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                        <?php foreach ($notifications as $notification) : ?>
-                            <li class="list-group-item list-group-item-action"><a href="<?= $notification['link'] ?>&notifid=<?= $notification['id'] ?>">
-                                    <?= $notification['msg'] ?>
-                                </a>
-                                <span class="timestamp"><?= $notification['cdate'] ?></span>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+                        <ul class="dropdown-menu p-2 striped scrollable-menu mt-2 dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                            <?php foreach ($notifications as $notification) : ?>
+                                <li class="list-group-item list-group-item-action"><a href="<?= $notification['link'] ?>&notifid=<?= $notification['id'] ?>">
+                                        <?= $notification['msg'] ?>
+                                    </a>
+                                    <span class="timestamp"><?= $notification['cdate'] ?></span>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
 
                 Welcome, <?php echo "<b>" . (($firstname) ? $firstname : 'Guest') . "</b>"; ?>
                 <?php echo "<img class='sm-userimg' src='" . ($userimg ?? 'views/imgs/guest.png') . "'>"; ?>

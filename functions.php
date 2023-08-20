@@ -66,3 +66,25 @@ function updateTaskWeight($category, $tid)
         $update = $db->update('tasks', $sdata, 'id=?', array($tid));
     }
 }
+// notification function
+function createNotification($db, $userids, $message, $link)
+{
+
+    if (is_array($userids)) {
+        foreach ($userids as $uid) {
+            $notifData = array(
+                "uid" => $uid,
+                "msg" => $message,
+                "link" => $link,
+            );
+            $insertNotif = $db->create("notifications", $notifData);
+        }
+    } else {
+        $notifData = array(
+            "uid" => $userids,
+            "msg" => $message,
+            "link" => $link,
+        );
+        $db->create('notifications', $notifData);
+    }
+}

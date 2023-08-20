@@ -1,11 +1,14 @@
  <!-- Bootstrap CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <link rel="stylesheet" type="" href="views/css/style.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
 
- <?php require("auth.php"); ?>
- <?php require("functions.php"); ?>
+ <?php
+    require("auth.php");
+    require("functions.php");
+    require("emailSender.php");
+    ?>
+
  <?php
     date_default_timezone_set("Asia/Riyadh");
     $currdt = date("Y-m-d H:i:s");
@@ -49,13 +52,23 @@
                 updateTaskWeight($_POST['category'], $inserted);
             }
 
-            // make notifications
-            $notifData = array(
-                "uid" => $_POST['assignuser'],
-                "msg" => "New task assigned:{$_POST['title']}",
-                "link" => "task?id=" . $inserted,
-            );
-            $db->create('notifications', $notifData);
+            // make notifications for multi users you can put userids in array instead of assigned user like [$uid.$authr..etc]
+            $message = "New task assigned:{$_POST['title']}";
+            $link = "task?id=" . $inserted;
+
+            createNotification($db, $_POST['assignuser'], $message, $link);
+
+            // send email 
+            $recipient = "user@example.com";
+            $emailSubject = "New Task Assignment";
+            $emailMessage = $message;
+            $emailSent = sendEmail($recipient, $emailSubject, $emailMessage);
+
+            if ($emailSent) {
+                echo "Email sent successfully.";
+            } else {
+                echo "Email sending failed.";
+            }
 
             header("Refresh: 2.3; URL=project?id=$pid");
         } else {
