@@ -66,7 +66,7 @@ function updateTaskWeight($category, $tid)
         $update = $db->update('tasks', $sdata, 'id=?', array($tid));
     }
 }
-// notification function
+// notification function for multi users you can put userids in array instead of assigned user like [$uid.$authr..etc]
 function createNotification($db, $userids, $message, $link)
 {
 
