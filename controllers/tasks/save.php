@@ -1,5 +1,6 @@
  <!-- Bootstrap CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <link rel="stylesheet" type="" href="views/css/style.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
 
@@ -52,7 +53,7 @@
                 updateTaskWeight($_POST['category'], $inserted);
             }
 
-            // make notifications for multi users you can put userids in array instead of assigned user like [$uid.$authr..etc]
+            // send notifications, for multi users you can put userids in array instead of assigned user like [$uid.$authr..etc]
             $message = "New task assigned:{$_POST['title']}";
             $link = "task?id=" . $inserted;
 
@@ -61,7 +62,7 @@
             // send email 
             $recipient = "user@example.com";
             $emailSubject = "New Task Assignment";
-            $emailMessage = $message;
+            $emailMessage = "New task assigned:{$_POST['title']}";
             $emailSent = sendEmail($recipient, $emailSubject, $emailMessage);
 
             if ($emailSent) {
