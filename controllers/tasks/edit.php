@@ -1,5 +1,6 @@
  <!-- Bootstrap CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <link rel="stylesheet" type="" href="views/css/style.css">
  <?php require("auth.php"); ?>
  <?php require("functions.php"); ?>
@@ -40,6 +41,12 @@
             echo "<div class='centerdiv text-center shadow w-25 mt-5 rounded-pill h6'>
         Task Updated Successfully <img src='/views/imgs/icons/verified.gif' width='50' height='50'> 
         </div>";
+            // send notifications, for multi users you can put userids in array instead of assigned user like [$uid.$authr..etc]
+            $message = "Modified/Exisiting Task assigned to you:{$_POST['title']}";
+            $link = "task?id=" . $tid[0];
+            createNotification($db, $_POST['assignuser'], $message, $link);
+
+            //update weight
             if (!empty($_POST['category'])) {
                 updateTaskWeight($_POST['category'], $tid[0]);
             }

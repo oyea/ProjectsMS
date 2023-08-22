@@ -88,3 +88,9 @@ function createNotification($db, $userids, $message, $link)
         $db->create('notifications', $notifData);
     }
 }
+
+//set notifications to read
+function readNotification($db, $uid, $link)
+{
+    $db->update('notifications', array('is_read' => 1), 'uid=? AND link=?', array($uid, $link));
+}

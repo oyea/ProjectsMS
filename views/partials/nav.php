@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-white shadow mt-2 rounded me-2 ms-2">
     <div class="container-fluid">
         <a class="navbar-brand" href="dashboard">PM-Dashboard</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -38,32 +39,35 @@
                 //show only if logged in 
                 if (isset($_SESSION["loggedin"])) :
                 ?>
-                    <div class="dropdown d-inline">
-                        <?php if ($notifications) { ?>
-                            <span class="position-absolute top-0 start-10 translate-middle badge border border-light rounded-circle bg-danger p-1">
-                                <?= count($notifications); ?>
-                            </span>
-                        <?php } ?>
-                        <img class="dropdown-toggle icon" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" src="/views/imgs/icons/chat.png">
+                <div class="dropdown d-inline">
+                    <?php if ($notifications) { ?>
+                    <span
+                        class="position-absolute top-0 start-10 translate-middle badge border border-light rounded-circle bg-danger p-1">
+                        <?= count($notifications); ?>
+                    </span>
+                    <?php } ?>
+                    <img class="dropdown-toggle icon" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                        aria-expanded="false" src="/views/imgs/icons/chat.png">
 
-                        <ul class="dropdown-menu p-2 striped scrollable-menu mt-2 dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                            <?php foreach ($notifications as $notification) : ?>
-                                <li class="list-group-item list-group-item-action"><a href="<?= $notification['link'] ?>&notifid=<?= $notification['id'] ?>">
-                                        <?= $notification['msg'] ?>
-                                    </a>
-                                    <span class="timestamp"><?= $notification['cdate'] ?></span>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul class="dropdown-menu p-2 striped scrollable-menu mt-2 dropdown-menu-end"
+                        aria-labelledby="dropdownMenuButton1">
+                        <?php foreach ($notifications as $notification) : ?>
+                        <li class="list-group-item list-group-item-action"><a href="<?= $notification['link'] ?>">
+                                <?= $notification['msg'] ?>
+                            </a>
+                            <span class="timestamp"><?= $notification['cdate'] ?></span>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
                 <?php endif; ?>
 
                 Welcome, <?php echo "<b>" . (($firstname) ? $firstname : 'Guest') . "</b>"; ?>
                 <?php echo "<img class='sm-userimg' src='" . ($userimg ?? 'views/imgs/guest.png') . "'>"; ?>
 
                 <?php if ($uid) { ?>
-                    <a href='logout' class='btn btn-sm btn-secondary'>Logout</a><br>
-                    <div></div>
+                <a href='logout' class='btn btn-sm btn-secondary'>Logout</a><br>
+                <div></div>
                 <?php } ?>
 
             </div>

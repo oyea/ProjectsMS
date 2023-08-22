@@ -151,11 +151,9 @@ $disabled = (!isAssigned('tasks', $tid, $uid) && !isAdmin($role) && !isAuthor('t
                 </div>
             </div>
             <?php
-            // make the notifications read for the assigned user
-            if ($_SESSION['uid'] == $row['assignuser'] && isset($_GET['notifid'])) {
-                $notifid = $_GET['notifid'];
-                $db->update('notifications', array('is_read' => 1), 'uid=? AND id=?', array($_SESSION['uid'], $notifid));
-            }
+            // make the notifications read
+            $link = substr($_SERVER['REQUEST_URI'], 1);
+            readNotification($db, $_SESSION['uid'], $link);
             ?>
 
 

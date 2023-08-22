@@ -54,7 +54,7 @@
             }
 
             // send notifications, for multi users you can put userids in array instead of assigned user like [$uid.$authr..etc]
-            $message = "New task assigned:{$_POST['title']}";
+            $message = "New task assigned to you:{$_POST['title']}";
             $link = "task?id=" . $inserted;
 
             createNotification($db, $_POST['assignuser'], $message, $link);
