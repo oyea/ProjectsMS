@@ -110,13 +110,13 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
                 </select>
 
             </div>
-
+            <?php if ($_SESSION['role']=='admin') :?>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input <?= $adminDisable ?>" id="approved" name="approved"
                     <?= ($user['approved'] == '1') ? 'checked' : ''; ?>>
                 <label class="form-check-label" for="">Approved</label>
             </div>
-
+            <?php endif ?>
             <div class="mb-3">
                 <label for="nationality" class="form-label">Nationality:</label>
                 <input type="text" class="form-control" id="nationality" name="nationality"
