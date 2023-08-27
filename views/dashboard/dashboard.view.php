@@ -16,7 +16,7 @@
         <div class="d-flex flex-row">
             <div class="p-2">
                 <div class="h5">Projects</div>
-                <table class="table table-striped">
+                <table class="table table-striped table-hover shadow">
                     <tr class="bg-success text-light">
                         <th>Active Projects</th>
                         <th>Archived Projects</th>
@@ -33,7 +33,7 @@
 
             <div class="p-2">
                 <div class="h5">Projects Categories Stats</div>
-                <table class="table table-striped">
+                <table class="table table-striped table-hover shadow">
                     <tr class="bg-success text-light">
                         <th>Status</th>
                         <th>HV</th>
@@ -71,7 +71,7 @@
             <div class="p-2">
                 <div class="h5">Projects Stats in <span class="text-danger"><?= $curryear ?></span>
                 </div>
-                <table class="table table-striped">
+                <table class="table table-striped table-hover shadow">
                     <tr class="bg-success text-light">
                         <th>Active Projects</th>
                         <th>Archived Projects</th>
@@ -90,7 +90,7 @@
         <div class="d-flex flex-row">
             <div class="p-2">
                 <div class="h5">Tasks</div>
-                <table class="table table-striped">
+                <table class="table table-striped table-hover shadow">
                     <thead class="bg-success text-light">
                         <tr>
                             <th class="bg-warning text-dark">Period</th>
@@ -124,7 +124,7 @@
             </div>
             <div class="p-2">
                 <div class="h5">Today's Tasks Stats</div>
-                <table class="table table-striped mb-5">
+                <table class="table table-striped mb-5 table-hover shadow">
                     <thead class="bg-success text-light">
                         <tr>
                             <th>Received</th>
@@ -144,7 +144,7 @@
         <div class="d-flex flex-row">
             <div class="p-2">
                 <div class="h5">Tasks Categories Stats</div>
-                <table class="table table-striped mb-5 text-center">
+                <table class="table table-striped mb-5 text-center table-hover shadow">
                     <thead class="bg-success text-light">
                         <tr>
                             <th>#</th>
