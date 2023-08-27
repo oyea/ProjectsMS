@@ -58,12 +58,14 @@
                     echo "<div class='centerdiv text-center shadow w-25 mt-5 rounded-pill'>
         <h4 class='mt-2'>Welcome, " . explode(" ", $user["name"])['0'] . "
         <img class='userimg' src ='" . (($user["image"]) ? $user['image'] : "/views/imgs/guest.png") . "'> <br>
-        <img src='/views/imgs/icons/wave.gif' width='50' height='50'> 
+        <img src='/views/imgs/icons/success2.gif' width='50' height='50'> 
         </h4></div>";
                     header("Refresh: 1.0; URL=/");
                 } else {
                     // Incorrect password
-                    echo "Incorrect password!";
+                    echo "<div class='centerdiv text-center shadow w-25 mt-5 rounded-pill'>
+        <h4 class='mt-2'> Incorrect password! <img src='/views/imgs/icons/animatedX.gif' width='50' height='50'>
+            </h4></div>";
                 }
             }
         } else {

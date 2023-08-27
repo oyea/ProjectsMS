@@ -52,6 +52,7 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
                 <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
             </div>
 
+            <?php if ($_SESSION['role'] == 'admin') : ?>
             <div class="mb-3">
                 <label for="role" class="form-label">Role:*</label>
                 <select name="role" id="role" class="form-control <?= $adminDisable ?>" required>
@@ -60,6 +61,7 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
 
                 </select>
             </div>
+            <?php endif ?>
 
             <div class="mb-3">
                 <label for="image" class="form-label">Upload Image:</label>
@@ -110,7 +112,7 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
                 </select>
 
             </div>
-            <?php if ($_SESSION['role']=='admin') :?>
+            <?php if ($_SESSION['role'] == 'admin') : ?>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input <?= $adminDisable ?>" id="approved" name="approved"
                     <?= ($user['approved'] == '1') ? 'checked' : ''; ?>>
