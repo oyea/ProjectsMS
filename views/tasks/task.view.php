@@ -23,9 +23,14 @@ $disabled = (!isAssigned('tasks', $tid, $uid) && !isAdmin($role) && !isAuthor('t
         <a title="Copy" onclick="return confirm('Are you sure you want to Copy?')"
             href="taskcopy?tid=<?= $tid ?>&pid=<?= $row['project']; ?>">
             <img class="icon" src="views/imgs/icons/copy.png"></a>
+
         <a class="<?= $disabled ?>" title="Delete" onclick="return confirm('Are you sure you want to Delete?')"
             href="taskdelete?tid=<?= $tid ?>&pid=<?= $row['project']; ?>">
             <img class="icon \" src="views/imgs/icons/delete.png"></a>
+
+        <a href="taskextcopyview?tid=<?= $tid ?>" class="btn btn-success"
+            onclick="window.open(this.href, '_blank', 'width=600,height=200,top=190,left=350,menubar=no,toolbar=no,location=no,status=no'); return false;">External
+            Copy</a>
     </div>
     <div class="container mt-2">
         <div class="d-inline-block">

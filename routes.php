@@ -36,4 +36,6 @@ return [
     '/taskdelete' => 'controllers/tasks/delete.php',
     '/taskcopy' => 'controllers/tasks/copy.php',
     '/taskedit' => 'controllers/tasks/edit.php',
+    '/taskextcopyview' => 'views/tasks/extcopy.view.php',
+    '/taskextcopyContrl' => 'controllers/tasks/extcopy.php',
 ];

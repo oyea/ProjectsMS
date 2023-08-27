@@ -117,9 +117,12 @@
 
         // If there are any errors, display them and do not proceed with user creation
         if (!empty($errors)) {
+            echo "<div class='centerdiv text-center shadow w-50 mt-5 rounded-pill h4'>
+            <img src='views/imgs/icons/animatedX.gif' width='50' height='50'><br>";
             foreach ($errors as $error) {
-                echo $error . "<br>";
+                echo "-" . $error . "<br>";
             }
+            echo "</div>";
             exit;
         }
 

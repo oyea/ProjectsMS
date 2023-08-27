@@ -25,11 +25,15 @@ if (empty($user)) {
 
 $user = $user[0]; // Fetch the first user (assuming user ID is unique)
 ?>
-<?php $adminDisable =  isadmin($_SESSION['role']); ?>
+<?php if (isadmin($_SESSION['role'])) {
+    $status = "";
+} else {
+    $status = "disabled";
+} ?>
 <div class="container mt-5 d-flex justify-content-center">
     <div class="w-50">
         <h1>Edit User</h1>
-        <form method="POST" action="useredit" enctype="multipart/form-data">
+        <form id="userupdate" method="POST" action="useredit" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $user['id']; ?>">
             <div class="mb-3">
                 <label for="username" class="form-label">Username/Badge No:</label>
@@ -52,16 +56,14 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
                 <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
             </div>
 
-            <?php if ($_SESSION['role'] == 'admin') : ?>
             <div class="mb-3">
                 <label for="role" class="form-label">Role:*</label>
-                <select name="role" id="role" class="form-control <?= $adminDisable ?>" required>
+                <select name="role" id="role" class="form-control <?= $status ?>"
+                    <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
                     <option value="user" <?= ($user['role'] == 'user') ? "SELECTED" : ""; ?>>User</option>
                     <option value="admin" <?= ($user['role'] == 'admin') ? "SELECTED" : ""; ?>>Admin</option>
-
                 </select>
             </div>
-            <?php endif ?>
 
             <div class="mb-3">
                 <label for="image" class="form-label">Upload Image:</label>
@@ -77,7 +79,8 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
 
             <div class="mb-3">
                 <label for="division" class="form-label">Division:*</label>
-                <select name="division" id="division" class="form-control <?= $adminDisable ?>" required>
+                <select name="division" id="division" class="form-control"
+                    <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
                     <option value="Department" <?= ($user['division'] == 'Department') ? "SELECTED" : ""; ?>>Department
                     </option>
                     <option value="COA" <?= ($user['division'] == 'COA') ? "SELECTED" : ""; ?>>COA</option>
@@ -90,7 +93,8 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
 
             <div class="mb-3">
                 <label for="emptype" class="form-label">Employment Type:</label>
-                <select name="emptype" id="emptype" class="form-control" required>
+                <select name="emptype" id="emptype" class="form-control"
+                    <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
                     <option value="Saudi Engineer" <?= ($user['emptype'] === "Saudi Engineer") ? "selected" : ""; ?>>
                         Saudi Engineer</option>
                     <option value="non-Saudi Engineer"
@@ -112,13 +116,14 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
                 </select>
 
             </div>
-            <?php if ($_SESSION['role'] == 'admin') : ?>
+
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input <?= $adminDisable ?>" id="approved" name="approved"
-                    <?= ($user['approved'] == '1') ? 'checked' : ''; ?>>
+                <input type="checkbox" class="form-check-input <?= $status ?>" id="approved" name="approved"
+                    <?= ($user['approved'] == '1') ? 'checked' : ''; ?>
+                    <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
                 <label class="form-check-label" for="">Approved</label>
             </div>
-            <?php endif ?>
+
             <div class="mb-3">
                 <label for="nationality" class="form-label">Nationality:</label>
                 <input type="text" class="form-control" id="nationality" name="nationality"
@@ -149,3 +154,11 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
 </div>
 
 <?php require($base . 'partials/footer.php'); ?>
+<script>
+document.getElementById('userupdate').addEventListener('submit', function() {
+    document.getElementById('division').removeAttribute('disabled');
+    document.getElementById('role').removeAttribute('disabled');
+    document.getElementById('approved').removeAttribute('disabled');
+    document.getElementById('emptype').removeAttribute('disabled');
+});
+</script>
