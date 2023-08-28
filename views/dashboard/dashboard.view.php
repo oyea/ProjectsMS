@@ -316,7 +316,7 @@ function drawChart() {
     ]);
 
     var options = {
-        title: "Pending & Completed Tasks",
+        title: "Today's Tasks",
         width: 400,
         height: 280,
         bar: {
