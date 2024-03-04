@@ -16,5 +16,5 @@ Key Features:
 
 ******** **Get Strated** **********
 
-    - create a database name it (**projectsms**)
-    - use the (projectsms_DB.sql) to import the tables with sample data
+    - create a database name it (projectsms)
+    - to import the tables with sample data from the file (projectsms_DB.sql) 
