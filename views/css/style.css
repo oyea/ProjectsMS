@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;1,100&display=swap');
+body {
+    display:block !important;
+    font-family: 'Kanit', sans-serif;
+}
+.userimg {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+.sm-userimg {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+.icon25 {
+    width: 25px;
+    height: 25px;
+}
+.footer {
+    /* box-shadow: 0 10px 30px #00000073; */
+    margin-top: 20px;
+}
+.centerdiv {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+.scale {
+    transition: 1s;
+        }
+.scale:hover {
+    transform: scale(1.1);
+    transition: 1s;
+}
+.scale2 {
+    transition: 1s;
+        }
+.scale2:hover {
+    transform: scale(1.6);
+    transition: 1s;
+}
+.removebtnstyle {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    /* line through the finshed tasks and archived projects*/
+    .linethru {
+            text-decoration: line-through; /* Apply the line strike-through effect */
+        }
+    /* END of line through the finshed tasks and archived projects*/
+
+.disabled {
+  pointer-events: none;
+}
+.dropdown-item {
+            white-space: normal; /* Allow text to wrap in notification menu */
+        }
+
+.scrollable-menu {
+    width: 250px; /* Adjust the width as needed */
+    max-height: 300px; /* Adjust the max-height as needed */
+    overflow-y: auto;
+}
+
+

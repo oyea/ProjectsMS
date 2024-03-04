@@ -1,0 +1,41 @@
+<?php
+return [
+
+    '/dashboard' => 'controllers/dashboard/dashboard.controller.php',
+
+    '/users' => 'controllers/users/users.controller.php',
+    '/userview' => 'controllers/users/user.controller.php',
+    '/login' => 'controllers/users/login.controller.php',
+    '/userlogin' => 'controllers/users/check.controller.php',
+    '/logout' => 'controllers/users/logout.controller.php',
+    '/usernew' => 'controllers/users/new.controller.php',
+    '/usersave' => 'controllers/users/save.controller.php',
+    '/userupdate' => 'controllers/users/update.controller.php',
+    '/useredit' => 'controllers/users/edit.controller.php',
+    '/userdelete' => 'controllers/users/delete.controller.php',
+    '/userblock' => 'controllers/users/block.controller.php',
+
+    '/' => 'controllers/projects/index.controller.php',
+    '/project' => 'controllers/projects/project.controller.php',
+    '/projectnew' => 'controllers/projects/newproject.controller.php',
+    '/projectsave' => 'controllers/projects/save.controller.php',
+    '/projectupdate' => 'controllers/projects/updateproject.controller.php',
+    '/projectedit' => 'controllers/projects/edit.controller.php',
+    '/projectcopy' => 'controllers/projects/copy.controller.php',
+    '/projectdelete' => 'controllers/projects/delete.controller.php',
+    '/projectarchive' => 'controllers/projects/archive.controller.php',
+    '/projectmarchive' => 'controllers/projects/marchive.controller.php',
+    '/projectmdelete' => 'controllers/projects/mdelete.controller.php',
+    '/projectuserDel' => 'controllers/projects/delProjUser.controller.php',
+
+    '/task' => 'controllers/tasks/task.controller.php',
+    '/tasknew' => 'controllers/tasks/newtask.controller.php',
+    '/taskGetSubCat' => 'controllers/tasks/getsubcategories.controller.php',
+    '/tasksave' => 'controllers/tasks/save.controller.php',
+    '/taskupdate' => 'controllers/tasks/update.controller.php',
+    '/taskdelete' => 'controllers/tasks/delete.controller.php',
+    '/taskcopy' => 'controllers/tasks/copy.controller.php',
+    '/taskedit' => 'controllers/tasks/edit.controller.php',
+    '/taskextcopyview' => 'views/tasks/extcopy.view.php',
+    '/taskextcopyContrl' => 'controllers/tasks/extcopy.controller.php',
+];
