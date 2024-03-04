@@ -13,3 +13,7 @@ Key Features:
 5.Strong Notification System: Never miss a critical update or deadline again. PMS boasts a robust notification system that keeps users informed about important project developments, task assignments, and impending deadlines.
 
 6.Email Integration: Enhance communication and collaboration with PMS's email integration capabilities. The system allows automatic email notifications based on predefined actions, facilitating seamless communication among project stakeholders.
+
+******** **Get Strated** **********
+    - create a database name it (**projectsms**)
+    - use the (projectsms_DB.sql) to import the tables with sample data
