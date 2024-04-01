@@ -14,7 +14,7 @@ Key Features:
 
 6.Email Integration: Enhance communication and collaboration with PMS's email integration capabilities. The system allows automatic email notifications based on predefined actions, facilitating seamless communication among project stakeholders.
 
-******** **Get Strated** **********
+******** **Get Strated** ***********
 
     - create a database name it (projectsms)
     - import the tables with sample data from the file (projectsms_DB.sql) 
