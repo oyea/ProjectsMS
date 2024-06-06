@@ -7,6 +7,7 @@ return [
     '/userview' => 'controllers/users/user.controller.php',
     '/login' => 'controllers/users/login.controller.php',
     '/userlogin' => 'controllers/users/check.controller.php',
+    '/mapi' => 'controllers/users/mobileApi.controller.php',
     '/logout' => 'controllers/users/logout.controller.php',
     '/usernew' => 'controllers/users/new.controller.php',
     '/usersave' => 'controllers/users/save.controller.php',
