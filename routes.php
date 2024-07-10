@@ -16,7 +16,7 @@ return [
     '/userdelete' => 'controllers/users/delete.controller.php',
     '/userblock' => 'controllers/users/block.controller.php',
 
-    '/' => 'controllers/projects/index.controller.php',
+    '/projectsms/' => 'controllers/projects/index.controller.php',
     '/project' => 'controllers/projects/project.controller.php',
     '/projectnew' => 'controllers/projects/newproject.controller.php',
     '/projectsave' => 'controllers/projects/save.controller.php',

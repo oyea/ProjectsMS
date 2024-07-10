@@ -72,7 +72,7 @@
                 <?php echo "<img class='sm-userimg' src='" . ($userimg ?? 'views/imgs/guest.png') . "'>"; ?>
 
                 <?php if ($uid) { ?>
-                    <a href='logout' class='btn btn-sm btn-secondary'>Logout</a><br>
+                    <a href='/logout' class='btn btn-sm btn-secondary'>Logout</a><br>
                     <div></div>
                 <?php } ?>
 
