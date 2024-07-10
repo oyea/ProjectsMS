@@ -2,7 +2,7 @@
 date_default_timezone_set("Asia/Riyadh");
 $curryear = date("Y");
 $heading = "Dashboard";
-$db = new Db('localhost', 'root', 'root', 'projectsms');
+$db = new Db('localhost', 'root1', 'root', 'projectsms');
 
 $actproj = $db->read('projects', 'archived=?', array(0));
 $archproj = $db->read('projects', 'archived=?', array(1));

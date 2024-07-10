@@ -3,7 +3,7 @@
 <?php require($base . 'partials/head.php'); ?>
 <?php require($base . 'partials/nav.php'); ?>
 <?php require($base . 'partials/banner.php'); ?>
-<?php $db = new Db('localhost', 'root', 'root', 'projectsms'); ?>
+<?php $db = new Db('localhost', 'root1', 'root', 'projectsms'); ?>
 <?php $users = $db->read('users'); ?>
 <main>
     <div class="container w-50">

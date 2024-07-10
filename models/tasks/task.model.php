@@ -1,2 +1,2 @@
 <?php
-$db = new Db('localhost', 'root', 'root', 'projectsms'); 
+$db = new Db('localhost', 'root1', 'root', 'projectsms');

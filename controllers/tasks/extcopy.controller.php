@@ -1,6 +1,5 @@
  <!-- Bootstrap CSS -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <link rel="stylesheet" type="" href="views/css/style.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
@@ -19,7 +18,7 @@
         // Get the author from the user session
         $assignuser = ""; //$_SESSION['uid']; // Replace with actual session variable later
 
-        $db = new Db('localhost', 'root', 'root', 'projectsms');
+        $db = new Db('localhost', 'root1', 'root', 'projectsms');
         // Retrieve the task data
         $taskData = $db->read('tasks', 'id = ?', [$tid]);
 
@@ -55,7 +54,7 @@
     }
     ?>
  <script>
-setTimeout(function() {
-    window.close();
-}, 2300); // Close the window after 2.3 seconds (2300 milliseconds)
+     setTimeout(function() {
+         window.close();
+     }, 2300); // Close the window after 2.3 seconds (2300 milliseconds)
  </script>

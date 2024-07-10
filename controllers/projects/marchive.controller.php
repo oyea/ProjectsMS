@@ -9,7 +9,7 @@
 
         header("location: /");
     }
-    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $db = new Db('localhost', 'root1', 'root', 'projectsms');
     $ids = $_POST['chkbox'];
     foreach ($ids as $id) {
         $archive = $db->update("projects", array("archived" => "1", "archivedate" => "$currdt"), "id=$id");

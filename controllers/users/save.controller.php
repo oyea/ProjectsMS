@@ -12,7 +12,7 @@
         // Instantiate the validate class
         $validator = new validate();
         // Instantiate the Db class (assuming your autoloader is set up properly)
-        $db = new Db('localhost', 'root', 'root', 'projectsms');
+        $db = new Db('localhost', 'root1', 'root', 'projectsms');
 
         // Retrieve the form input values and validate them
         $username = $validator->str($_POST["username"]);

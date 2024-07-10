@@ -6,7 +6,7 @@
  <?php
     $validate = new validate();
     if (isset($_GET["id"]) && !empty($_GET["id"])) {
-        $db = new Db('localhost', 'root', 'root', 'projectsms');
+        $db = new Db('localhost', 'root1', 'root', 'projectsms');
 
         $id = array($validate->str($_GET["id"]));
 

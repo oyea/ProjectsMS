@@ -4,7 +4,7 @@
 <?php require($base . 'partials/nav.php'); ?>
 <?php require($base . 'partials/banner.php'); ?>
 <?php
-$db = new Db('localhost', 'root', 'root', 'projectsms');
+$db = new Db('localhost', 'root1', 'root', 'projectsms');
 $users = $db->read('users');
 
 $val = new validate();

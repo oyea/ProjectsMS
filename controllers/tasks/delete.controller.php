@@ -6,7 +6,7 @@
 
     $validate = new validate();
     if (isset($_GET["tid"]) && !empty($_GET["tid"])) {
-        $db = new Db('localhost', 'root', 'root', 'projectsms');
+        $db = new Db('localhost', 'root1', 'root', 'projectsms');
 
         $tid = array($validate->str($_GET["tid"]));
         $pid = array($validate->str($_GET["pid"]));

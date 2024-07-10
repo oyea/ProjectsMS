@@ -9,7 +9,7 @@
         header("location: /");
     }
 
-    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $db = new Db('localhost', 'root1', 'root', 'projectsms');
 
     $datas = $_POST['chkbox'];
 

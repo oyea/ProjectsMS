@@ -10,7 +10,7 @@
     $currdt = date("Y-m-d H:i:s");
     $validate = new validate();
     if ($_SERVER["REQUEST_METHOD"] == "POST" && $validate->str($_POST['title']) != "") {
-        $db = new Db('localhost', 'root', 'root', 'projectsms');
+        $db = new Db('localhost', 'root1', 'root', 'projectsms');
         $data = array(
             'title' => $validate->str($_POST['title']),
             'cdate' => $currdt,

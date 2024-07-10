@@ -1,5 +1,5 @@
 <?php
-$db = new Db('localhost', 'root', 'root', 'projectsms');
+$db = new Db('localhost', 'root1', 'root', 'projectsms');
 session_start();
 
 // Check if the user is not logged in (session not set or expired)
@@ -30,13 +30,13 @@ function isAdmin($role)
 function isAssigned($table, $tid, $uid)
 {
     $iSassigned = false;
-    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $db = new Db('localhost', 'root1', 'root', 'projectsms');
     $users = $db->read($table, 'id=? AND assignuser=?', array($tid, $uid));
     return ($users) ? true : false;
 }
-function isAuthor($table,$tid, $uid)
+function isAuthor($table, $tid, $uid)
 {
-    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $db = new Db('localhost', 'root1', 'root', 'projectsms');
     $tasks = $db->read($table, 'id=? AND author=?', array($tid, $uid));
     return ($tasks) ? true : false;
 }

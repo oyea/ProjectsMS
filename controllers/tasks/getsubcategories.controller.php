@@ -5,7 +5,7 @@ if (isset($_GET['categoryId'])) {
     $categoryId = array($_GET['categoryId']);
 
     // Perform a database query to fetch the related subcategories based on the category ID
-    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $db = new Db('localhost', 'root1', 'root', 'projectsms');
 
     $subcategories = $db->read('subtaskscategories', 'category_id=?', $categoryId);
 

@@ -1,26 +1,26 @@
 <?php
 function user($id)
 {
-    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $db = new Db('localhost', 'root1', 'root', 'projectsms');
     $users = $db->read('users', 'id=?', array($id));
     echo $user = $users['0']['name'] ?? NULL;
 }
 function project($id)
 {
-    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $db = new Db('localhost', 'root1', 'root', 'projectsms');
     $projects = $db->read('projects', 'id=?', array($id));
     echo $project = $projects['0']['title'] ?? NULL;
 }
 function taskcateg($id)
 {
-    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $db = new Db('localhost', 'root1', 'root', 'projectsms');
     $categories = $db->read('taskscategories', 'id=?', array($id));
     echo $category = $categories['0']['category'] ?? NULL;
 }
 
 function tasksubcateg($id)
 {
-    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $db = new Db('localhost', 'root1', 'root', 'projectsms');
     $subcategories = $db->read('subtaskscategories', 'id=?', array($id));
     echo $subcategory = $subcategories['0']['subcat'] ?? NULL;
 }
@@ -49,7 +49,7 @@ function daysDiff($Recedate, $replyDate)
 //update task weight
 function updateTaskWeight($category, $tid)
 {
-    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $db = new Db('localhost', 'root1', 'root', 'projectsms');
     //get weight from task categories table
     $categoryInfo = $db->read('taskscategories', 'id=?', array($category));
     $weight =  $categoryInfo[0]['weight'];

@@ -1,5 +1,5 @@
 <?php
-$db = new Db('localhost', 'root', 'root', 'projectsms');
+$db = new Db('localhost', 'root1', 'root', 'projectsms');
 $pid = $_GET['id'];
 $project = $db->read('projects', 'id=?', array($pid));
 $heading = "New Task in the Project : <b>" . $project[0]['title'] . "</b>";

@@ -10,7 +10,7 @@
         header("location: users");
     }
 
-    $db = new Db('localhost', 'root', 'root', 'projectsms');
+    $db = new Db('localhost', 'root1', 'root', 'projectsms');
 
     $id = htmlspecialchars(trim($_GET['id']));
     $params = array($id);

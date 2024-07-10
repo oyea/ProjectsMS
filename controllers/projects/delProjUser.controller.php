@@ -5,7 +5,7 @@
  <?php
     $val = new validate();
     if (isset($_GET["uid"]) && !empty($_GET["uid"]) && isset($_GET["pid"]) && !empty($_GET["pid"])) {
-        $db = new Db('localhost', 'root', 'root', 'projectsms');
+        $db = new Db('localhost', 'root1', 'root', 'projectsms');
         $pid = $val->str($_GET['pid']);
         $deleted = $db->delete('projects_users', 'project_id=? AND userid=?', array($val->str($_GET['pid']), $val->str($_GET['uid'])));
 

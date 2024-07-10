@@ -3,7 +3,7 @@
 <?php require($base . 'partials/head.php'); ?>
 <?php require($base . 'partials/nav.php'); ?>
 <?php require($base . 'partials/banner.php'); ?>
-<?php $db = new Db('localhost', 'root', 'root', 'projectsms');
+<?php $db = new Db('localhost', 'root1', 'root', 'projectsms');
 
 // Get the user ID from the query string or form submission
 $userID = isset($_GET['id']) ? $_GET['id'] : (isset($_POST['id']) ? $_POST['id'] : null);
@@ -37,8 +37,7 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
             <input type="hidden" name="id" value="<?= $user['id']; ?>">
             <div class="mb-3">
                 <label for="username" class="form-label">Username/Badge No:</label>
-                <input type="text" class="form-control" id="username" name="username" value="<?= $user['user']; ?>"
-                    required>
+                <input type="text" class="form-control" id="username" name="username" value="<?= $user['user']; ?>" required>
             </div>
 
             <div class="mb-3">
@@ -58,8 +57,7 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
 
             <div class="mb-3">
                 <label for="role" class="form-label">Role:*</label>
-                <select name="role" id="role" class="form-control <?= $status ?>"
-                    <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
+                <select name="role" id="role" class="form-control <?= $status ?>" <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
                     <option value="user" <?= ($user['role'] == 'user') ? "SELECTED" : ""; ?>>User</option>
                     <option value="admin" <?= ($user['role'] == 'admin') ? "SELECTED" : ""; ?>>Admin</option>
                 </select>
@@ -73,14 +71,12 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" value="<?= $user['email']; ?>"
-                    required>
+                <input type="email" class="form-control" id="email" name="email" value="<?= $user['email']; ?>" required>
             </div>
 
             <div class="mb-3">
                 <label for="division" class="form-label">Division:*</label>
-                <select name="division" id="division" class="form-control"
-                    <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
+                <select name="division" id="division" class="form-control" <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
                     <option value="Department" <?= ($user['division'] == 'Department') ? "SELECTED" : ""; ?>>Department
                     </option>
                     <option value="COA" <?= ($user['division'] == 'COA') ? "SELECTED" : ""; ?>>COA</option>
@@ -93,23 +89,17 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
 
             <div class="mb-3">
                 <label for="emptype" class="form-label">Employment Type:</label>
-                <select name="emptype" id="emptype" class="form-control"
-                    <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
+                <select name="emptype" id="emptype" class="form-control" <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
                     <option value="Saudi Engineer" <?= ($user['emptype'] === "Saudi Engineer") ? "selected" : ""; ?>>
                         Saudi Engineer</option>
-                    <option value="non-Saudi Engineer"
-                        <?= ($user['emptype'] === "non-Saudi Engineer") ? "selected" : ""; ?>>non-Saudi Engineer
+                    <option value="non-Saudi Engineer" <?= ($user['emptype'] === "non-Saudi Engineer") ? "selected" : ""; ?>>non-Saudi Engineer
                     </option>
-                    <option value="Saudi Administration"
-                        <?= ($user['emptype'] === "Saudi Administration") ? "selected" : ""; ?>>Saudi Administration
+                    <option value="Saudi Administration" <?= ($user['emptype'] === "Saudi Administration") ? "selected" : ""; ?>>Saudi Administration
                     </option>
-                    <option value="non-Saudi Administration"
-                        <?= ($user['emptype'] === "non-Saudi Administration") ? "selected" : ""; ?>>non-Saudi
+                    <option value="non-Saudi Administration" <?= ($user['emptype'] === "non-Saudi Administration") ? "selected" : ""; ?>>non-Saudi
                         Administration</option>
-                    <option value="Saudi Contractor"
-                        <?= ($user['emptype'] === "Saudi Contractor") ? "selected" : ""; ?>>Saudi Contractor</option>
-                    <option value="non-Saudi Contractor"
-                        <?= ($user['emptype'] === "non-Saudi Contractor") ? "selected" : ""; ?>>non-Saudi Contractor
+                    <option value="Saudi Contractor" <?= ($user['emptype'] === "Saudi Contractor") ? "selected" : ""; ?>>Saudi Contractor</option>
+                    <option value="non-Saudi Contractor" <?= ($user['emptype'] === "non-Saudi Contractor") ? "selected" : ""; ?>>non-Saudi Contractor
                     </option>
                     <option value="PDP" <?= ($user['emptype'] === "PDP") ? "selected" : ""; ?>>PDP</option>
                     <option value="OJT" <?= ($user['emptype'] === "OJT") ? "selected" : ""; ?>>OJT</option>
@@ -118,22 +108,18 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
             </div>
 
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input <?= $status ?>" id="approved" name="approved"
-                    <?= ($user['approved'] == '1') ? 'checked' : ''; ?>
-                    <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
+                <input type="checkbox" class="form-check-input <?= $status ?>" id="approved" name="approved" <?= ($user['approved'] == '1') ? 'checked' : ''; ?> <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
                 <label class="form-check-label" for="">Approved</label>
             </div>
 
             <div class="mb-3">
                 <label for="nationality" class="form-label">Nationality:</label>
-                <input type="text" class="form-control" id="nationality" name="nationality"
-                    value="<?= $user['nationality']; ?>">
+                <input type="text" class="form-control" id="nationality" name="nationality" value="<?= $user['nationality']; ?>">
             </div>
 
             <div class="mb-3">
                 <label for="joiningdate" class="form-label">Joining Date:</label>
-                <input type="date" class="form-control" id="joiningdate" name="joiningdate"
-                    value="<?= $user['joiningdate']; ?>">
+                <input type="date" class="form-control" id="joiningdate" name="joiningdate" value="<?= $user['joiningdate']; ?>">
             </div>
 
             <div class="mb-3">
@@ -143,8 +129,7 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
 
             <div class="mb-3">
                 <label for="vacbalance" class="form-label">Vacation Balance:</label>
-                <input type="number" class="form-control" id="vacbalance" name="vacbalance"
-                    value="<?= $user['vacbalance']; ?>">
+                <input type="number" class="form-control" id="vacbalance" name="vacbalance" value="<?= $user['vacbalance']; ?>">
             </div>
 
             <button type="submit" class="btn btn-primary">Update User</button>
@@ -155,10 +140,10 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
 
 <?php require($base . 'partials/footer.php'); ?>
 <script>
-document.getElementById('userupdate').addEventListener('submit', function() {
-    document.getElementById('division').removeAttribute('disabled');
-    document.getElementById('role').removeAttribute('disabled');
-    document.getElementById('approved').removeAttribute('disabled');
-    document.getElementById('emptype').removeAttribute('disabled');
-});
+    document.getElementById('userupdate').addEventListener('submit', function() {
+        document.getElementById('division').removeAttribute('disabled');
+        document.getElementById('role').removeAttribute('disabled');
+        document.getElementById('approved').removeAttribute('disabled');
+        document.getElementById('emptype').removeAttribute('disabled');
+    });
 </script>
