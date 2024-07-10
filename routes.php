@@ -4,7 +4,7 @@ return [
     '/dashboard' => 'controllers/dashboard/dashboard.controller.php',
 
     '/users' => 'controllers/users/users.controller.php',
-    '/userview' => 'controllers/users/user.controller.php',
+    '/userview' => 'projectsms/controllers/users/user.controller.php',
     '/login' => 'controllers/users/login.controller.php',
     '/userlogin' => 'controllers/users/check.controller.php',
     '/mapi' => 'controllers/users/mobileApi.controller.php',
@@ -16,7 +16,7 @@ return [
     '/userdelete' => 'controllers/users/delete.controller.php',
     '/userblock' => 'controllers/users/block.controller.php',
 
-    '/projectsms/' => 'controllers/projects/index.controller.php',
+    '/' => 'controllers/projects/index.controller.php',
     '/project' => 'controllers/projects/project.controller.php',
     '/projectnew' => 'controllers/projects/newproject.controller.php',
     '/projectsave' => 'controllers/projects/save.controller.php',
