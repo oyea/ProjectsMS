@@ -1,0 +1,16 @@
+{
+    "name": "omer/pms",
+    "description": "PMS is a smart Projects Management System, it helps track projects, tasks, performance and time, it has so many features that will help the management take the righthe right decisions.",
+    "authors": [
+        {
+            "name": "Omer Elsharief",
+            "email": "oyelsharief@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/"
+        }
+    }
+}

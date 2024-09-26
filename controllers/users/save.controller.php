@@ -5,6 +5,10 @@
 
  <?php require("auth.php"); ?>
  <?php
+
+    use Core\Db;
+    use Core\validate;
+
     date_default_timezone_set("Asia/Riyadh");
     $currdt = date("Y-m-d H:i:s");
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -111,7 +115,7 @@
             foreach ($errors as $error) {
                 echo "div class='centerdiv text-center shadow w-50 mt-5 rounded-pill'>" . $error .
                     "<br><a class='btn btn-primary btn-sm mt-1 mb-2' href='#' onclick='history.go(-1);'>Go Back</a>
-        </div>";
+     </div>";
             }
             exit;
         }
@@ -144,8 +148,8 @@
 
         if ($insertedUserId) {
             echo "<div class='centerdiv text-center shadow w-50 mt-5'>
-        <h4> New Users created Successfully</h4> <img src='/views/imgs/icons/verified.gif' width='80' height='80'> 
-        </div>";
+         <h4> New Users created Successfully</h4> <img src='/views/imgs/icons/verified.gif' width='80' height='80'>
+     </div>";
             header("Refresh: 2.0; URL=users");
             // You can redirect the user to a success page or another page here
         } else {

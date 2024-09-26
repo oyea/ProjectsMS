@@ -4,7 +4,7 @@ return [
     '/dashboard' => 'controllers/dashboard/dashboard.controller.php',
 
     '/users' => 'controllers/users/users.controller.php',
-    '/userview' => 'projectsms/controllers/users/user.controller.php',
+    '/userview' => 'controllers/users/user.controller.php',
     '/login' => 'controllers/users/login.controller.php',
     '/userlogin' => 'controllers/users/check.controller.php',
     '/mapi' => 'controllers/users/mobileApi.controller.php',

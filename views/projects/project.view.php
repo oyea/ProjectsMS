@@ -3,7 +3,13 @@
 <?php require($base . 'partials/head.php'); ?>
 <?php require($base . 'partials/nav.php'); ?>
 <?php require($base . 'partials/banner.php'); ?>
-<?php $db = new Db('localhost', 'root1', 'root', 'projectsms'); ?>
+<?php
+
+use Core\Db;
+use Core\validate;
+
+$db = new Db('localhost', 'root1', 'root', 'projectsms');
+?>
 <?php $pid = trim($_GET['id']); ?>
 <?php require 'functions.php'; ?>
 <?php if (!$pid) {

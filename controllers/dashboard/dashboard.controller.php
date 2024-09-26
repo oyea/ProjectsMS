@@ -1,4 +1,7 @@
 <?php
+
+use Core\Db;
+
 date_default_timezone_set("Asia/Riyadh");
 $curryear = date("Y");
 $heading = "Dashboard";
@@ -49,37 +52,36 @@ $tasks = $db->read('tasks');
 $todayPenTasks =
     array_filter($pendTasks, function ($task) {
         $today = date("Y-m-d");
-        $taskDate = date("Y-m-d", strtotime($task['recedate']));
+        $taskDate = $task['recedate'];
         return $taskDate === $today;
     });
 $todayCompTasks =
     array_filter($compTasks, function ($task) {
         $today = date("Y-m-d");
-        $taskDate = date("Y-m-d", strtotime($task['replydate']));
+        $taskDate = $task['replydate'];
         return $taskDate === $today;
     });
 
-
 // tasks received and replied more than 10 days
-$penTasks10 =
-    array_filter($pendTasks, function ($task) {
-        $tenDaysAgo = date('Y-m-d', strtotime(date('Y-m-d') . ' - 10 days'));
-        return  $task['recedate'] <= $tenDaysAgo;
-    });
+$penTasks10 = array_filter($pendTasks, function ($task) {
+    $tenDaysAgo = date('Y-m-d', strtotime('-10 days'));
+    return $task['recedate'] <= $tenDaysAgo;
+});
+
 $compTasks10 =
     array_filter($compTasks, function ($task) {
-        $tenDaysAgo = date('Y-m-d', strtotime(date('Y-m-d') . ' - 10 days'));
+        $tenDaysAgo = date('Y-m-d', strtotime('-10 days'));
         return  $task['replydate'] <= $tenDaysAgo;
     });
 // tasks received and replied more than 15 days
 $penTasks15 =
     array_filter($pendTasks, function ($task) {
-        $fiftenDaysAgo =  date('Y-m-d', strtotime(date('Y-m-d') . ' - 15 days'));
+        $fiftenDaysAgo =  date('Y-m-d', strtotime('-15 days'));
         return  $task['recedate'] <= $fiftenDaysAgo;
     });
 $compTasks15 =
     array_filter($compTasks, function ($task) {
-        $fiftenDayAgo =  date('Y-m-d', strtotime(date('Y-m-d') . ' - 15 days'));
+        $fiftenDayAgo =  date('Y-m-d', strtotime('-15 days'));
         return $task['replydate'] <= $fiftenDayAgo;
     });
 

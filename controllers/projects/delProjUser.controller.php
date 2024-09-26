@@ -3,6 +3,11 @@
  <link rel="stylesheet" type="" href="views/css/style.css">
  <?php require("auth.php"); ?>
  <?php
+
+    use Core\Db;
+    use Core\validate;
+    ?>
+ <?php
     $val = new validate();
     if (isset($_GET["uid"]) && !empty($_GET["uid"]) && isset($_GET["pid"]) && !empty($_GET["pid"])) {
         $db = new Db('localhost', 'root1', 'root', 'projectsms');

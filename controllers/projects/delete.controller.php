@@ -4,6 +4,11 @@
 
  <?php require("auth.php"); ?>
  <?php
+
+    use Core\Db;
+    use Core\validate;
+    ?>
+ <?php
     $validate = new validate();
     if (isset($_GET["id"]) && !empty($_GET["id"])) {
         $db = new Db('localhost', 'root1', 'root', 'projectsms');

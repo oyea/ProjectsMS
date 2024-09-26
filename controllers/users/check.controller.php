@@ -4,6 +4,9 @@
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
 
  <?php
+
+    use Core\Db;
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Retrieve the form input values
         $username = $_POST["user"];

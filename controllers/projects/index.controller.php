@@ -1,10 +1,14 @@
-<?php 
+<?php
+
+use Core\Db;
+use Core\validate;
+
 $heading = "Projects";
 //require the auth
 require "auth.php";
-$base = __DIR__ . '/../../' ; 
+$base = __DIR__ . '/../../';
 
- //require the model
+//require the model
 require $base . 'models/projects/projects.model.php';
 
 //require the partials
@@ -22,7 +26,7 @@ $valid->str($limit);
 $search = $_POST['search'] ?? "";
 $valid->str($search);
 $archived = $_POST['archived'] ?? "all";
-$countproject = $db->read('projects'); 
+$countproject = $db->read('projects');
 
 // require the views
 require 'views/projects/projects.view.php';

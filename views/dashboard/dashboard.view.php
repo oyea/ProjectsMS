@@ -155,13 +155,13 @@
                         </tr>
                     </thead>
                     <?php for ($i = 1; $i <= 24; $i++) { ?>
-                    <tr>
-                        <td><?= $i ?></td>
-                        <td><?= taskcateg($i) ?></td>
-                        <td><?= $categoryTasksCountarr[$i] ?></td>
-                        <td><?= $categoriesDaysCount[$i]; ?></td>
-                        <td><?= number_format($categoriesAverageDaysCount[$i], 2)  ?></td>
-                    </tr>
+                        <tr>
+                            <td><?= $i ?></td>
+                            <td><?= taskcateg($i) ?></td>
+                            <td><?= $categoryTasksCountarr[$i] ?></td>
+                            <td><?= $categoriesDaysCount[$i]; ?></td>
+                            <td><?= number_format($categoriesAverageDaysCount[$i], 2)  ?></td>
+                        </tr>
                     <?php } ?>
 
                 </table>
@@ -179,235 +179,235 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <!-- all projects pie chart -->
 <script type="text/javascript">
-google.charts.load("current", {
-    packages: ["corechart"]
-});
-google.charts.setOnLoadCallback(drawChart);
+    google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-        ['Projects', 'Number'],
-        ['On-going', <?= count($actproj) ?>],
-        ['Archived', <?= count($archproj) ?>]
-    ]);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Projects', 'Number'],
+            ['On-going', <?= count($actproj) ?>],
+            ['Archived', <?= count($archproj) ?>]
+        ]);
 
-    var options = {
-        title: 'Projects',
-        is3D: true,
-        colors: ['#db4437', '#198754'],
-    };
+        var options = {
+            title: 'Projects',
+            is3D: true,
+            colors: ['#db4437', '#198754'],
+        };
 
-    var chart = new google.visualization.PieChart(document.getElementById('projstat'));
-    chart.draw(data, options);
-}
+        var chart = new google.visualization.PieChart(document.getElementById('projstat'));
+        chart.draw(data, options);
+    }
 </script>
 <!-- projects Categories chart -->
 <script type="text/javascript">
-google.charts.load('current', {
-    'packages': ['bar']
-});
-google.charts.setOnLoadCallback(drawChart);
+    google.charts.load('current', {
+        'packages': ['bar']
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-        ['Status', 'HV', 'EHV', 'Maintenace'],
-        ['Active', <?= count($hvProjects) ?>, <?= count($ehvProjects) ?>, <?= count($maintenanceProjects) ?>],
-        ['Archived', <?= count($archhvProjects) ?>, <?= count($archehvProjects) ?>,
-            <?= count($archmaintenanceProjects) ?>
-        ]
-    ]);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Status', 'HV', 'EHV', 'Maintenace'],
+            ['Active', <?= count($hvProjects) ?>, <?= count($ehvProjects) ?>, <?= count($maintenanceProjects) ?>],
+            ['Archived', <?= count($archhvProjects) ?>, <?= count($archehvProjects) ?>,
+                <?= count($archmaintenanceProjects) ?>
+            ]
+        ]);
 
-    var options = {
-        chart: {
-            title: '',
-            subtitle: '',
-        },
-        bars: 'vertical', // Required for Material Bar Charts.
-        colors: ['198754', 'f2b707', 'db4437']
-    };
+        var options = {
+            chart: {
+                title: '',
+                subtitle: '',
+            },
+            bars: 'vertical', // Required for Material Bar Charts.
+            colors: ['198754', 'f2b707', 'db4437']
+        };
 
-    var chart = new google.charts.Bar(document.getElementById('actarchprojcat'));
+        var chart = new google.charts.Bar(document.getElementById('actarchprojcat'));
 
-    chart.draw(data, google.charts.Bar.convertOptions(options));
-}
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
 </script>
 <!-- current year projects chart -->
 <script type="text/javascript">
-google.charts.load("current", {
-    packages: ["corechart"]
-});
-google.charts.setOnLoadCallback(drawChart);
+    google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-        ['Projects', 'Number'],
-        ['On-going', <?= count($currYearActProj) ?>],
-        ['Archived', <?= count($currYearArchProj) ?>]
-    ]);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Projects', 'Number'],
+            ['On-going', <?= count($currYearActProj) ?>],
+            ['Archived', <?= count($currYearArchProj) ?>]
+        ]);
 
-    var options = {
-        title: 'Projects in <?= $curryear ?> Stats',
-        is3D: true,
-        colors: ['#db4437', '#198754'],
-    };
+        var options = {
+            title: 'Projects in <?= $curryear ?> Stats',
+            is3D: true,
+            colors: ['#db4437', '#198754'],
+        };
 
-    var chart = new google.visualization.PieChart(document.getElementById('curryearProjStat'));
-    chart.draw(data, options);
-}
+        var chart = new google.visualization.PieChart(document.getElementById('curryearProjStat'));
+        chart.draw(data, options);
+    }
 </script>
 
 <!-- //tasks chart -->
 
 <script type="text/javascript">
-google.charts.load('current', {
-    'packages': ['bar']
-});
-google.charts.setOnLoadCallback(drawChart);
+    google.charts.load('current', {
+        'packages': ['bar']
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-        ['Status', 'Pending', 'Completed'],
-        ['All', <?= count($pendTasks) ?>, <?= count($compTasks) ?>],
-        ['10 Days', <?= count($penTasks10) ?>, <?= count($compTasks10) ?>],
-        ['15 Days', <?= count($penTasks15) ?>, <?= count($compTasks15) ?>]
-    ]);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Status', 'Pending', 'Completed'],
+            ['All', <?= count($pendTasks) ?>, <?= count($compTasks) ?>],
+            ['10 Days', <?= count($penTasks10) ?>, <?= count($compTasks10) ?>],
+            ['15 Days', <?= count($penTasks15) ?>, <?= count($compTasks15) ?>]
+        ]);
 
-    var options = {
-        chart: {
-            title: '',
-            subtitle: '',
-        },
-        bars: 'vertical', // Required for Material Bar Charts.
-        colors: ['db4437', '198754']
-    };
+        var options = {
+            chart: {
+                title: '',
+                subtitle: '',
+            },
+            bars: 'vertical', // Required for Material Bar Charts.
+            colors: ['db4437', '198754']
+        };
 
-    var chart = new google.charts.Bar(document.getElementById('taskschart'));
+        var chart = new google.charts.Bar(document.getElementById('taskschart'));
 
-    chart.draw(data, google.charts.Bar.convertOptions(options));
-}
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
 </script>
 
 <!-- Todays Tasks chart -->
 
 <script type="text/javascript">
-google.charts.load("current", {
-    packages: ['corechart']
-});
-google.charts.setOnLoadCallback(drawChart);
+    google.charts.load("current", {
+        packages: ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-        ["Status", "Number", {
-            role: "style"
-        }],
-        ["Pending", <?= count($todayPenTasks) ?>, "#db4437"],
-        ["Completed", <?= count($todayCompTasks) ?>, "color: #198754"]
-    ]);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ["Status", "Number", {
+                role: "style"
+            }],
+            ["Pending", <?= count($todayPenTasks) ?>, "#db4437"],
+            ["Completed", <?= count($todayCompTasks) ?>, "color: #198754"]
+        ]);
 
-    var view = new google.visualization.DataView(data);
-    view.setColumns([0, 1,
-        {
-            calc: "stringify",
-            sourceColumn: 1,
-            type: "string",
-            role: "annotation"
-        },
-        2
-    ]);
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+            {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            },
+            2
+        ]);
 
-    var options = {
-        title: "Today's Tasks",
-        width: 400,
-        height: 280,
-        bar: {
-            groupWidth: "50%"
-        },
-        legend: {
-            position: "none"
-        },
-    };
-    var chart = new google.visualization.ColumnChart(document.getElementById("todaystaskschart"));
-    chart.draw(view, options);
-}
+        var options = {
+            title: "Today's Tasks",
+            width: 400,
+            height: 280,
+            bar: {
+                groupWidth: "50%"
+            },
+            legend: {
+                position: "none"
+            },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("todaystaskschart"));
+        chart.draw(view, options);
+    }
 </script>
 
 <!-- tasks Categories chart -->
 
 <script type="text/javascript">
-google.charts.load("current", {
-    packages: ['corechart']
-});
-google.charts.setOnLoadCallback(drawChart);
+    google.charts.load("current", {
+        packages: ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-        ["category", "Number", {
-            role: "style"
-        }],
-        ["Issuing a PR/TS (SOW)", <?= count($tCat1) ?>, "#198754"],
-        ["Revise/Review a PR Ver. X", <?= count($tCat2) ?>, "color: #f2b707"],
-        ["Review a bidder clarification (per bidder)", <?= count($tCat3) ?>, "#198754"],
-        ["Review the relay list", <?= count($tCat4) ?>, "#f2b707"],
-        ["Review the project base design", <?= count($tCat5) ?>, "#198754"],
-        ["Review the project details design", <?= count($tCat6) ?>, "#f2b707"],
-        ["Review of protection cross-related project submittals (TFR, SOE, LCC,...)", <?= count($tCat7) ?>,
-            "#198754"
-        ],
-        ["Issuing the protection relay setting per equipment (TR, line, BB, Other)", <?= count($tCat8) ?>,
-            "#f2b707"
-        ],
-        ["Issuing the protection relay setting per substation", <?= count($tCat9) ?>, "#198754"],
-        ["Relay setting coordination study or setting at the interface point with 'Generation, DBU, Bulk customer' (per study)",
-            <?= count($tCat10) ?>, "#f2b707"
-        ],
-        ["Nth version of any project submittals", <?= count($tCat11) ?>, "#198754"],
-        ["Miscellaneous documents review", <?= count($tCat12) ?>, "#f2b707"],
-        ["Review of irrelevant protection submittals (out of PED scope)", <?= count($tCat13) ?>, "#198754"],
-        ["Prepare a base design for a special protection scheme (SPS)?>, per request", <?= count($tCat14) ?>,
-            "#f2b707"
-        ],
-        ["Quick response to normalize the fault and give a quick response before the morning call (per incident)",
-            <?= count($tCat15) ?>, "#198754"
-        ],
-        ["Fault analysis (per incident)", <?= count($tCat16) ?>, "#f2b707"],
-        ["Review Standards, policies, procedures,...", <?= count($tCat17) ?>, "#198754"],
-        ["Preparing WI, procedure,...", <?= count($tCat18) ?>, "#f2b707"],
-        ["Protection relay pre-qualification", <?= count($tCat19) ?>, "#198754"],
-        ["Review OPDS scheme as a team member", <?= count($tCat20) ?>, "#f2b707"],
-        ["Conduct a wide-area coordination study", <?= count($tCat21) ?>, "#198754"],
-        ["Review the project base design per equipment or voltage level", <?= count($tCat22) ?>, "#f2b707"],
-        ["Review the project details design per equipment or voltage level", <?= count($tCat23) ?>, "#198754"],
-        ["Peer Review of a project submittal", <?= count($tCat24) ?>, "#f2b707"]
-    ]);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ["category", "Number", {
+                role: "style"
+            }],
+            ["Issuing a PR/TS (SOW)", <?= count($tCat1) ?>, "#198754"],
+            ["Revise/Review a PR Ver. X", <?= count($tCat2) ?>, "color: #f2b707"],
+            ["Review a bidder clarification (per bidder)", <?= count($tCat3) ?>, "#198754"],
+            ["Review the relay list", <?= count($tCat4) ?>, "#f2b707"],
+            ["Review the project base design", <?= count($tCat5) ?>, "#198754"],
+            ["Review the project details design", <?= count($tCat6) ?>, "#f2b707"],
+            ["Review of protection cross-related project submittals (TFR, SOE, LCC,...)", <?= count($tCat7) ?>,
+                "#198754"
+            ],
+            ["Issuing the protection relay setting per equipment (TR, line, BB, Other)", <?= count($tCat8) ?>,
+                "#f2b707"
+            ],
+            ["Issuing the protection relay setting per substation", <?= count($tCat9) ?>, "#198754"],
+            ["Relay setting coordination study or setting at the interface point with 'Generation, DBU, Bulk customer' (per study)",
+                <?= count($tCat10) ?>, "#f2b707"
+            ],
+            ["Nth version of any project submittals", <?= count($tCat11) ?>, "#198754"],
+            ["Miscellaneous documents review", <?= count($tCat12) ?>, "#f2b707"],
+            ["Review of irrelevant protection submittals (out of PED scope)", <?= count($tCat13) ?>, "#198754"],
+            ["Prepare a base design for a special protection scheme (SPS)?>, per request", <?= count($tCat14) ?>,
+                "#f2b707"
+            ],
+            ["Quick response to normalize the fault and give a quick response before the morning call (per incident)",
+                <?= count($tCat15) ?>, "#198754"
+            ],
+            ["Fault analysis (per incident)", <?= count($tCat16) ?>, "#f2b707"],
+            ["Review Standards, policies, procedures,...", <?= count($tCat17) ?>, "#198754"],
+            ["Preparing WI, procedure,...", <?= count($tCat18) ?>, "#f2b707"],
+            ["Protection relay pre-qualification", <?= count($tCat19) ?>, "#198754"],
+            ["Review OPDS scheme as a team member", <?= count($tCat20) ?>, "#f2b707"],
+            ["Conduct a wide-area coordination study", <?= count($tCat21) ?>, "#198754"],
+            ["Review the project base design per equipment or voltage level", <?= count($tCat22) ?>, "#f2b707"],
+            ["Review the project details design per equipment or voltage level", <?= count($tCat23) ?>, "#198754"],
+            ["Peer Review of a project submittal", <?= count($tCat24) ?>, "#f2b707"]
+        ]);
 
-    var view = new google.visualization.DataView(data);
-    view.setColumns([0, 1, {
-        calc: "stringify",
-        sourceColumn: 1,
-        type: "string",
-        role: "annotation"
-    }, 2]);
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1, {
+            calc: "stringify",
+            sourceColumn: 1,
+            type: "string",
+            role: "annotation"
+        }, 2]);
 
-    var options = {
-        title: "Tasks Categories",
-        width: 1400,
-        height: 600,
-        chartArea: {
-            left: 50,
-            top: 20,
-            width: '80%',
-            height: '80%'
-        }, // Adjust these values as needed
-        bar: {
-            groupWidth: "80%"
-        },
-        legend: {
-            position: "none"
-        },
-    };
-    var chart = new google.visualization.ColumnChart(document.getElementById("taskscategories"));
-    chart.draw(view, options);
-}
+        var options = {
+            title: "Tasks Categories",
+            width: 1400,
+            height: 600,
+            chartArea: {
+                left: 50,
+                top: 20,
+                width: '80%',
+                height: '80%'
+            }, // Adjust these values as needed
+            bar: {
+                groupWidth: "80%"
+            },
+            legend: {
+                position: "none"
+            },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("taskscategories"));
+        chart.draw(view, options);
+    }
 </script>
 
 <?php require($base . 'partials/footer.php'); ?>

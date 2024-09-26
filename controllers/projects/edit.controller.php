@@ -3,6 +3,11 @@
  <link rel="stylesheet" type="" href="views/css/style.css">
  <?php require("auth.php"); ?>
  <?php
+
+    use Core\Db;
+    use Core\validate;
+    ?>
+ <?php
     date_default_timezone_set("Asia/Riyadh");
     $currdt = date("Y-m-d H:i:s");
     $val = new validate();

@@ -1,4 +1,7 @@
 <?php
+
+namespace Core;
+
 class Db
 {
     private $host;
@@ -21,7 +24,7 @@ class Db
 
     private function connect()
     {
-        $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
+        $this->connection = new \mysqli($this->host, $this->username, $this->password, $this->database);
         if ($this->connection->connect_error) {
             die("Connection failed: " . $this->connection->connect_error);
         }

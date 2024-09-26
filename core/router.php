@@ -1,4 +1,7 @@
 <?php
+
+namespace Core;
+
 class router
 {
     public function route($uri, $routes)

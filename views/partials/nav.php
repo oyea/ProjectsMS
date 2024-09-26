@@ -29,6 +29,9 @@
                 ?>
                 <!-- read notifications from db -->
                 <?php
+
+                use Core\Db;
+
                 $db = new Db('localhost', 'root1', 'root', 'projectsms');
                 $notifications = $db->read('notifications', 'uid=? AND is_read=?', [$uid, 0], null, null, 'cdate');
 
