@@ -4,6 +4,10 @@
  <?php require("auth.php"); ?>
  <?php require("functions.php"); ?>
  <?php
+
+    use Core\Db;
+    use Core\validate;
+
     date_default_timezone_set("Asia/Riyadh");
     $currdt = date("Y-m-d H:i:s");
     $val = new validate();

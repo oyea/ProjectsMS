@@ -4,6 +4,11 @@
 
  <?php require("auth.php"); ?>
  <?php
+
+    use Core\Db;
+    use Core\validate;
+    ?>
+ <?php
     if (empty($_POST['chkbox'])) {
 
         header("location: /");

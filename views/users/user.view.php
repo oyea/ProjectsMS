@@ -4,8 +4,13 @@
 ?>
 <?php require($base . 'partials/nav.php'); ?>
 <?php require($base . 'partials/banner.php'); ?>
-<?php $db = new Db('localhost', 'root1', 'root', 'projectsms'); ?>
-<?php $valid = new validate(); ?>
+<?php
+
+use Core\Db;
+use Core\validate;
+
+$db = new Db('localhost', 'root1', 'root', 'projectsms');
+$valid = new validate(); ?>
 <?php require 'functions.php'; ?>
 
 <?php

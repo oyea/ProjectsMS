@@ -4,6 +4,9 @@
  <?php require("auth.php"); ?>
  <?php
 
+    use Core\Db;
+    use Core\validate;
+
     $validate = new validate();
     if (isset($_GET["id"]) && !empty($_GET["id"])) {
         $db = new Db('localhost', 'root1', 'root', 'projectsms');
@@ -13,8 +16,8 @@
         $deleted = $db->delete('users', 'id=?', $id);
         if ($deleted) {
             echo "<div class='centerdiv text-center shadow w-25 mt-5'>
-        User Deleted Successfully <img src='/views/imgs/icons/Gifdelete.gif' width='50' height='50'> 
-        </div>";
+     User Deleted Successfully <img src='/views/imgs/icons/Gifdelete.gif' width='50' height='50'>
+ </div>";
             header("Refresh: 1; URL=users");
         } else {
             echo "Error";

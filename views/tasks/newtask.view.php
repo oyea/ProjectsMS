@@ -1,7 +1,11 @@
 <?php $base = __DIR__ . '/../'; ?>
 <?php require("auth.php"); ?>
 <?php require(dirname(dirname(__DIR__)) . "/functions.php"); ?>
+<?php
 
+use Core\Db;
+use Core\validate;
+?>
 <?php require($base . 'partials/head.php'); ?>
 <?php require($base . 'partials/nav.php'); ?>
 <?php require($base . 'partials/banner.php'); ?>

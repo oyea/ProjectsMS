@@ -1,6 +1,11 @@
 <?php $base = __DIR__ . '/../'; ?>
 <?php require("auth.php"); ?>
 <?php require(dirname(dirname(__DIR__)) . "/functions.php"); ?>
+<?php
+
+use Core\Db;
+use Core\validate;
+?>
 <?php $db = new Db('localhost', 'root1', 'root', 'projectsms'); ?>
 <?php $val = new validate(); ?>
 <!-- Bootstrap CSS -->

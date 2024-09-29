@@ -5,6 +5,10 @@
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
  <?php require("auth.php"); ?>
  <?php
+
+    use Core\Db;
+    use Core\validate;
+
     $val = new validate();
     date_default_timezone_set("Asia/Riyadh");
     $currdt = date("Y-m-d H:i:s");

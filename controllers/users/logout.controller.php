@@ -1,7 +1,11 @@
 <?php
+
+use Core\Db;
+use Core\validate;
+
 $db = new Db('localhost', 'root1', 'root', 'projectsms');
 session_start();
-//set user offline 
+//set user offline
 $uid = $_SESSION["uid"];
 $db->update('users', array('online' => '0'), 'id=?', array($uid));
 // Clear all session variables

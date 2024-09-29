@@ -1,4 +1,13 @@
 <?php
+
+use Core\Db;
+
+function dd($var)
+{
+    var_dump($var);
+    exit();
+}
+
 function user($id)
 {
     $db = new Db('localhost', 'root1', 'root', 'projectsms');

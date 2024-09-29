@@ -4,6 +4,10 @@
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
  <?php require("auth.php"); ?>
  <?php
+
+    use Core\Db;
+    use Core\validate;
+
     date_default_timezone_set("Asia/Riyadh");
     $currdt = date("Y-m-d H:i:s");
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -117,11 +121,12 @@
         // If there are any errors, display them and do not proceed with user creation
         if (!empty($errors)) {
             echo "<div class='centerdiv text-center shadow w-50 mt-5 rounded-pill h4'>
-            <img src='views/imgs/icons/animatedX.gif' width='50' height='50'><br>";
+             <img src='views/imgs/icons/animatedX.gif' width='50' height='50'><br>";
             foreach ($errors as $error) {
                 echo "-" . $error . "<br>";
             }
-            echo "</div>";
+            echo "
+         </div>";
             exit;
         }
 
@@ -167,8 +172,8 @@
 
         if ($updated) {
             echo "<div class='centerdiv text-center shadow w-50 mt-5 rounded-pill'>
-        <h4> Users updated Successfully</h4> <img src='/views/imgs/icons/verified.gif' width='80' height='80'> 
-        </div>";
+             <h4> Users updated Successfully</h4> <img src='/views/imgs/icons/verified.gif' width='80' height='80'>
+         </div>";
             header("Refresh: 2.0; URL=users");
             // You can redirect the user to a success page or another page here
         } else {

@@ -3,7 +3,12 @@
 <?php require($base . 'partials/head.php'); ?>
 <?php require($base . 'partials/nav.php'); ?>
 <?php require($base . 'partials/banner.php'); ?>
-<?php $db = new Db('localhost', 'root1', 'root', 'projectsms');
+<?php
+
+use Core\Db;
+use Core\validate;
+
+$db = new Db('localhost', 'root1', 'root', 'projectsms');
 
 // Get the user ID from the query string or form submission
 $userID = isset($_GET['id']) ? $_GET['id'] : (isset($_POST['id']) ? $_POST['id'] : null);
