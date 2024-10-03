@@ -213,7 +213,7 @@
     new Chart(document.getElementById('projstat'), projConfig);
 </script>
 
-<!-- Projects Categories Chart -->
+<!-- Projects Categories Bar Chart -->
 <script>
     const actarchProjCatData = {
         labels: ['Active', 'Archived'],
