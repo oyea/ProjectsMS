@@ -11,7 +11,7 @@
     Dark Red :  #db4437 
 -->
 <main>
-
+    <?php var_dump($tCat1) ?>
     <div class="container">
         <h2 class="text-center mb-5">Projects Dashboard</h2>
         <div class="d-flex flex-row">
@@ -354,22 +354,89 @@
     new Chart(document.getElementById('todaystaskschart'), todaysTasksConfig);
 </script>
 
-<!-- Tasks Categories Chart-->
+<!-- Chart.js Script for Tasks Categories -->
 <script>
-    var colors = ["#198754", "#f2b707"];
     const tasksCategoriesData = {
         labels: [
-            <?php for ($i = 1; $i <= 24; $i++) { ?> '<?= taskcateg($i) ?>',
-            <?php } ?>
+            "Issuing a PR/TS (SOW)",
+            "Revise/Review a PR Ver. X",
+            "Review a bidder clarification (per bidder)",
+            "Review the relay list",
+            "Review the project base design",
+            "Review the project details design",
+            "Review of protection cross-related project submittals (TFR, SOE, LCC,...)",
+            "Issuing the protection relay setting per equipment (TR, line, BB, Other)",
+            "Issuing the protection relay setting per substation",
+            "Relay setting coordination study or setting at the interface point with 'Generation, DBU, Bulk customer' (per study)",
+            "Nth version of any project submittals",
+            "Miscellaneous documents review",
+            "Review of irrelevant protection submittals (out of PED scope)",
+            "Prepare a base design for a special protection scheme (SPS) per request",
+            "Quick response to normalize the fault and give a quick response before the morning call (per incident)",
+            "Fault analysis (per incident)",
+            "Review Standards, policies, procedures,...",
+            "Preparing WI, procedure,...",
+            "Protection relay pre-qualification",
+            "Review OPDS scheme as a team member",
+            "Conduct a wide-area coordination study",
+            "Review the project base design per equipment or voltage level",
+            "Review the project details design per equipment or voltage level",
+            "Peer Review of a project submittal"
         ],
         datasets: [{
             label: 'Tasks Count',
             data: [
-                <?php for ($i = 1; $i <= 24; $i++) { ?>
-                    <?= $categoryTasksCountarr[$i] ?>,
-                <?php } ?>
+                <?= count($tCat1) ?>,
+                <?= count($tCat2) ?>,
+                <?= count($tCat3) ?>,
+                <?= count($tCat4) ?>,
+                <?= count($tCat5) ?>,
+                <?= count($tCat6) ?>,
+                <?= count($tCat7) ?>,
+                <?= count($tCat8) ?>,
+                <?= count($tCat9) ?>,
+                <?= count($tCat10) ?>,
+                <?= count($tCat11) ?>,
+                <?= count($tCat12) ?>,
+                <?= count($tCat13) ?>,
+                <?= count($tCat14) ?>,
+                <?= count($tCat15) ?>,
+                <?= count($tCat16) ?>,
+                <?= count($tCat17) ?>,
+                <?= count($tCat18) ?>,
+                <?= count($tCat19) ?>,
+                <?= count($tCat20) ?>,
+                <?= count($tCat21) ?>,
+                <?= count($tCat22) ?>,
+                <?= count($tCat23) ?>,
+                <?= count($tCat24) ?>
             ],
-            backgroundColor: Array.from(colors, (v, i) => colors[i % colors.length]),
+            backgroundColor: [
+                "#198754",
+                "#f2b707",
+                "#198754",
+                "#f2b707",
+                "#198754",
+                "#f2b707",
+                "#198754",
+                "#f2b707",
+                "#198754",
+                "#f2b707",
+                "#198754",
+                "#f2b707",
+                "#198754",
+                "#f2b707",
+                "#198754",
+                "#f2b707",
+                "#198754",
+                "#f2b707",
+                "#198754",
+                "#f2b707",
+                "#198754",
+                "#f2b707",
+                "#198754",
+                "#f2b707"
+            ],
             borderColor: '#ffffff',
             borderWidth: 2
         }]

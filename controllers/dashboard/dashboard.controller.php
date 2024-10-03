@@ -101,6 +101,6 @@ for ($i = 1; $i <= 24; $i++) {
     $categoryTasksCountarr[$i] = $categoryTasksCount;
     $categoriesAverageDaysCount[$i] = $categoryTasksCount > 0 ? $categoriesDaysCount[$i] / $categoryTasksCount : 0;
 }
-//function to call category name 
+
 
 require 'views/dashboard/dashboard.view.php';
