@@ -103,6 +103,7 @@ $pid = $val->str($_GET['pid']);
                 </div>
             </div>
             <div class="form-group mt-3">
+                <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"]; ?>">
                 <input type="hidden" name="tid" value="<?= $tid ?>">
                 <input type="hidden" name="pid" value="<?= $pid ?>">
                 <button name="submit" type="submit" class="btn btn-primary w-25 offset-5">Save</button>

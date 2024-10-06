@@ -5,6 +5,7 @@
 <?php require($base . 'partials/banner.php'); ?>
 <?php
 
+
 use Core\Db;
 use Core\validate;
 
@@ -105,6 +106,8 @@ $db = new Db('localhost', 'root1', 'root', 'projectsms');
                 <label for="vacbalance" class="form-label">Vacation Balance:</label>
                 <input type="number" class="form-control" id="vacbalance" name="vacbalance">
             </div>
+
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"]; ?>">
 
             <button type="submit" class="btn btn-primary">Save User</button>
             <a href="#" onclick="history.go(-1);" class="btn btn-danger">Cancel</a>

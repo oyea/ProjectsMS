@@ -87,6 +87,7 @@ use Core\validate;
             </div>
         </div>
         <div class="form-group mt-3">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"]; ?>">
             <input type="hidden" name="pid" value="<?= $pid ?>">
             <button name="submit" type="submit" class="btn btn-primary w-25 offset-5">Save</button>
             <a href="#" onclick="history.go(-1);" class="btn btn-danger">Cancel</a>

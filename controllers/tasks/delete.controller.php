@@ -8,7 +8,7 @@
     use Core\validate;
 
     $validate = new validate();
-    if (isset($_GET["tid"]) && !empty($_GET["tid"])) {
+    if (isset($_GET["tid"]) && !empty($_GET["tid"]) && hash_equals($_SESSION["csrf_token"], $_POST['csrf_token'])) {
         $db = new Db('localhost', 'root1', 'root', 'projectsms');
 
         $tid = array($validate->str($_GET["tid"]));

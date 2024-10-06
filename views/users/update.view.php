@@ -137,6 +137,8 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
                 <input type="number" class="form-control" id="vacbalance" name="vacbalance" value="<?= $user['vacbalance']; ?>">
             </div>
 
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"]; ?>">
+
             <button type="submit" class="btn btn-primary">Update User</button>
             <a href="#" onclick="history.go(-1);" class="btn btn-danger">Cancel</a>
         </form>

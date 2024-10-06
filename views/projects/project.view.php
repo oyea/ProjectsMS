@@ -254,8 +254,12 @@ foreach ($project as $row) {  ?>
                                 <img class="icon" src="views/imgs/icons/copy.png"></a>
                             <a title="Edit" href="taskupdate?tid=<?= $row['id'] ?>&pid=<?= $pid ?>" class="<?= $disabled ?>">
                                 <img class="icon" src="views/imgs/icons/edit.png"></a>
-                            <a title="Delete" onclick="return confirm('Are you sure you want to Delete <?= $row['title']; ?> ?')" href="taskdelete?tid=<?= $row['id'] ?>&pid=<?= $pid ?>" class="<?= $disabled ?>">
-                                <img class="icon" src="views/imgs/icons/delete.png"></a>
+                            <form method="POST" action="taskdelete?tid=<?= $tid ?>&pid=<?= $row['project']; ?>" style="display: inline-block;">
+                                <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"]; ?>">
+                                <button class="<?= $disabled ?>" title="Delete" onclick="return confirm('Are you sure you want to Delete?')"
+                                    href="taskdelete?tid=<?= $tid ?>&pid=<?= $row['project']; ?>">
+                                    <img class="icon \" src="views/imgs/icons/delete.png"></button>
+                            </form>
                         </td>
                     </tr>
                 <?php } ?>

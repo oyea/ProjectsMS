@@ -14,7 +14,7 @@
     $tid = array($_POST['tid']);
     $pid = array($_POST['pid']);
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && hash_equals($_SESSION["csrf_token"], $_POST['csrf_token'])) {
         $db = new Db('localhost', 'root1', 'root', 'projectsms');
 
         //calculate days diff between received date and reply date if available

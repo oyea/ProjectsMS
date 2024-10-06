@@ -46,6 +46,8 @@
                     $_SESSION["division"] = $user["division"];
                     $_SESSION["role"] = $user["role"];
                     $_SESSION["image"] = $user["image"];
+                    //generate a CSRF token
+                    $_SESSION["csrf_token"] = bin2hex(random_bytes(32));
 
                     //set logget in to true
                     $loggedin = true;

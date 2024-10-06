@@ -11,7 +11,7 @@
 
     date_default_timezone_set("Asia/Riyadh");
     $currdt = date("Y-m-d H:i:s");
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && hash_equals($_SESSION["csrf_token"], $_POST['csrf_token'])) {
         $errors = array();
         // Instantiate the validate class
         $validator = new validate();
@@ -113,7 +113,7 @@
         // If there are any errors, display them and do not proceed with user creation
         if (!empty($errors)) {
             foreach ($errors as $error) {
-                echo "div class='centerdiv text-center shadow w-50 mt-5 rounded-pill'>" . $error .
+                echo "<div class='centerdiv text-center shadow w-50 mt-5 rounded-pill'>" . $error .
                     "<br><a class='btn btn-primary btn-sm mt-1 mb-2' href='#' onclick='history.go(-1);'>Go Back</a>
      </div>";
             }

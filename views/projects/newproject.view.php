@@ -63,6 +63,7 @@ use Core\validate;
                 </select>
             </div>
             <div class="form-group">
+                <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"]; ?>">
                 <button name="submit" type="submit" class="btn btn-primary mt-3 w-25 offset-5">Save</button>
                 <a href="/" class="btn btn-danger mt-3 ">Cancel</a>
             </div>

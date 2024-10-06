@@ -26,6 +26,7 @@ use Core\validate;
         </div>
         <input type="hidden" name="tid" value="<?= $_GET['tid']; ?>">
         <div class="form-group mt-3">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"]; ?>">
             <button name="submit" type="submit" class="btn btn-primary w-25 offset-5">Copy</button>
             <a href="#" onclick="window.close();" class="btn btn-danger">Cancel</a>
         </div>

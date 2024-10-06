@@ -75,7 +75,12 @@
                 <?php echo "<img class='sm-userimg' src='" . ($userimg ?? 'views/imgs/guest.png') . "'>"; ?>
 
                 <?php if ($uid) { ?>
-                    <a href='logout' class='btn btn-sm btn-secondary'>Logout</a><br>
+                    <form method="POST" action="/logout">
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"]; ?>">
+                        <button type="submit" class='btn btn-sm btn-secondary'>Logout</button>
+                    </form>
+
+                    <!-- <a href='logout' class='btn btn-sm btn-secondary'>Logout</a><br> -->
                     <div></div>
                 <?php } ?>
 
