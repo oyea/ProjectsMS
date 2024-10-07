@@ -26,7 +26,11 @@ foreach ($project as $row) {  ?>
         <div>
             <a href="tasknew?id=<?= $pid ?>" class="btn btn-success btn-md">New Task</a>
             <a title="Copy" onclick="return confirm('Are you sure you want to Copy?')" href="projectcopy?pid=<?= $pid ?>"><img class="icon" src="views/imgs/icons/copy.png"></a>
-            <a title="Delete" onclick="return confirm('Are you sure you want to Delete?')" href="projectdelete?id=<?= $pid ?>" class="<?= $disable ?>"><img class="icon" src="views/imgs/icons/delete.png"></a>
+            <form method="POST" action="projectdelete?id=<?= $pid ?>" style="display: inline-block;">
+                <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"]; ?>">
+                <button class="" title="Delete" onclick="return confirm('Are you sure you want to Delete?')">
+                    <img class="icon \" src="views/imgs/icons/delete.png"></button>
+            </form>
         </div>
         <div class="container mt-2">
             <div class="d-inline-block">

@@ -97,6 +97,7 @@ foreach ($rows as $row) {
                     </select>
                 </div>
                 <div class="form-group">
+                    <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"]; ?>">
                     <input name="id" type="hidden" value="<?= $_GET['id'] ?>">
                     <button name="submit" type="submit" class="btn btn-primary mt-3 w-25 offset-5">Save</button>
                     <a href="#" onclick="history.go(-1);" class="btn btn-danger mt-3 ">Cancel</a>

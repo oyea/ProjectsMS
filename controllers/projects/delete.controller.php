@@ -10,7 +10,7 @@
     ?>
  <?php
     $validate = new validate();
-    if (isset($_GET["id"]) && !empty($_GET["id"])) {
+    if (isset($_GET["id"]) && !empty($_GET["id"]) && hash_equals($_SESSION["csrf_token"], $_POST['csrf_token'])) {
         $db = new Db('localhost', 'root1', 'root', 'projectsms');
 
         $id = array($validate->str($_GET["id"]));

@@ -29,13 +29,19 @@
         // Check if the user exists
         if ($db->count > 0) {
             foreach ($users as $user) {
+
+                //check if user is blocked
+                if ($user["approved"] == 0) {
+                    header("location: /login");
+                    die();
+                }
+
                 $hashedPassword = $user["password"];
 
                 // Verify the password
                 if (password_verify($password, $hashedPassword)) {
-                    // Password is correct, login successful
 
-                    // Start a new session or resume the existing session
+                    // if Password is correct and not blocked, login successful Start a new session or resume the existing session
                     session_start();
 
                     // Store user information in session variables

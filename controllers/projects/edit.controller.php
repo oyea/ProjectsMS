@@ -13,7 +13,7 @@
     $val = new validate();
     $id = array($_POST['id']);
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && hash_equals($_SESSION["csrf_token"], $_POST['csrf_token'])) {
         $db = new Db('localhost', 'root1', 'root', 'projectsms');
         $archiveDT = ($_POST['archive'] == 1) ? $currdt : NULL;
         $data = array(

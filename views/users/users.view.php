@@ -1,4 +1,3 @@
-
 <main class="container">
     <div>
         <div class="text-end">
@@ -92,7 +91,11 @@
 
                     <td>
                         <a title="Edit" href="userupdate?id=<?= $user['id'] ?>" class="<?= $disable ?>"><img class="icon" src="views/imgs/icons/edit.png"></a>
-                        <a title="Delete" onclick="return confirm('Are you sure you want to Delete?')" href="userdelete?id=<?= $user['id'] ?>" class="<?= (!$adminDisable) ? "disabled" : "";  ?> "><img class="icon" src="views/imgs/icons/delete.png"></a>
+                        <form method="POST" action="userdelete?id=<?= $user['id'] ?>" style="display: inline-block;">
+                            <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"]; ?>">
+                            <button class="<?= (!$adminDisable) ? "disabled" : "";  ?> " title="Delete" onclick="return confirm('Are you sure you want to Delete?')">
+                                <img class="icon \" src="views/imgs/icons/delete.png"></button>
+                        </form>
                         <?php if ($user['approved'] == 1) { ?>
                             <a title="Block" onclick="return confirm('Are you sure you want to Block <?= $user['name'] ?> ?')" href="userblock?id=<?= $user['id'] ?>" class="<?= (!$adminDisable) ? "disabled" : "";  ?> "><img class="icon" src="views/imgs/icons/banuser.png"></a>
                         <?php } ?>
