@@ -3,6 +3,7 @@
 <?php require($base . 'partials/head.php'); ?>
 <?php require($base . 'partials/nav.php'); ?>
 <?php require($base . 'partials/banner.php'); ?>
+
 <?php
 
 use Core\Db;
@@ -107,31 +108,8 @@ foreach ($project as $row) {  ?>
                                 <td><?= count($completedt); ?></td>
                             </tr>
                         </table>
-                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                        <script type="text/javascript">
-                            google.charts.load("current", {
-                                packages: ["corechart"]
-                            });
-                            google.charts.setOnLoadCallback(drawChart);
 
-                            function drawChart() {
-                                var data = google.visualization.arrayToDataTable([
-                                    ['Task', 'Number'],
-                                    ['Pending', <?= count($pendingt); ?>],
-                                    ['Completed', <?= count($completedt); ?>]
-                                ]);
-
-                                var options = {
-                                    title: 'Tasks',
-                                    is3D: true,
-                                    colors: ['#FA693E', '#198754'],
-                                };
-
-                                var chart = new google.visualization.PieChart(document.getElementById('projectstats'));
-                                chart.draw(data, options);
-                            }
-                        </script>
-                        <div id="projectstats" class="scale" style="width: 400px; height: 200px;"></div>
+                        <canvas id="projstat" class="scale" style="width: 250px; height: 150px;"></canvas>
                     </div>
                 </div>
             </div>
@@ -270,5 +248,34 @@ foreach ($project as $row) {  ?>
             </table>
         </div>
     </main>
-
     <?php require($base . 'partials/footer.php'); ?>
+    <script>
+        const projData = {
+            labels: ['Pending', 'Completed'],
+            datasets: [{
+                label: 'Tasks Stats',
+                data: [<?= count($pendingt); ?>, <?= count($completedt); ?>],
+                backgroundColor: ['#db4437', '#198754'],
+                hoverOffset: 4
+            }]
+        };
+
+        const projConfig = {
+            type: 'pie',
+            data: projData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Tasks'
+                    }
+                }
+            },
+        };
+
+        new Chart(document.getElementById('projstat'), projConfig);
+    </script>
