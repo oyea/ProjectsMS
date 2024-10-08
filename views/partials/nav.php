@@ -54,7 +54,8 @@
                                 <li class="list-group-item list-group-item-action"><a href="<?= $notification['link'] ?>">
                                         <?= $notification['msg'] ?>
                                     </a>
-                                    <span class="timestamp"><?= $notification['cdate'] ?></span>
+                                    <div class="small text-muted"><?= $notification['cdate'] ?></div>
+                                    <hr>
                                 </li>
                             <?php endforeach; ?>
                         </ul>

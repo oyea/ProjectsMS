@@ -35,7 +35,6 @@ use Core\validate;
             <label for="subcat" id="subcatlabel">Sub Category</label>
             <div>
                 <select id="subcat" name="subcat" class="custom-select">
-
                 </select>
             </div>
         </div>

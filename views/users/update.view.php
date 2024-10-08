@@ -113,7 +113,7 @@ $user = $user[0]; // Fetch the first user (assuming user ID is unique)
             </div>
 
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input <?= $status ?>" id="approved" name="approved" <?= ($user['approved'] == '1') ? 'checked' : ''; ?> <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?> required>
+                <input type="checkbox" class="form-check-input <?= $status ?>" id="approved" name="approved" <?= ($user['approved'] == '1') ? 'checked' : ''; ?> <?= !isAdmin($_SESSION['role']) ? 'disabled' : ''; ?>>
                 <label class="form-check-label" for="">Approved</label>
             </div>
 

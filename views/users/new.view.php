@@ -83,8 +83,8 @@ $db = new Db('localhost', 'root1', 'root', 'projectsms');
             </div>
 
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="approved" name="approved">
                 <label class="form-check-label" for="approved">Approved</label>
+                <input type="checkbox" class="form-check-input" id="approved" name="approved" checked>
             </div>
 
             <div class="mb-3">

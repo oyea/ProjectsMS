@@ -1,4 +1,6 @@
 <?php
+
+use Core\Db;
 // Assuming you have already instantiated the database connection and have a Db class available
 
 if (isset($_GET['categoryId'])) {
