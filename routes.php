@@ -39,4 +39,5 @@ return [
     '/taskedit' => 'controllers/tasks/edit.controller.php',
     '/taskextcopyview' => 'views/tasks/extcopy.view.php',
     '/taskextcopyContrl' => 'controllers/tasks/extcopy.controller.php',
+    '/phpword'=> 'phpword.php',
 ];
