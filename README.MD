@@ -16,5 +16,6 @@ Key Features:
 
 ******** **Get Strated** ***********
 
-    - create a database name it (projectsms)
-    - import the tables with sample data from the file (projectsms_DB.sql) 
+    - using mysql create a database name it (projectsms)
+    - import the DB (with sample data) from the file (projectsms_DB.sql) 
+    - Run composer install to install third party libraries
